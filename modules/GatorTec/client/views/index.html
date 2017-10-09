@@ -11,12 +11,15 @@
     <div class="wrapper">
     <form class="form-signin">
       <h2 class="form-signin-heading" align="center">Login</h2>
-      <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
+      <input type="email" class="form-control" name="email" size="64" placeholder="Email Address" required autofocus />
       <br/>
-      <input type="text" class="form-control" name="phone" placeholder="Phone Number" required=""/>
+      <input type="tel" class="form-control" name="phone" placeholder="Phone Number" size="10"
+      pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required/>
+
       <br/>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>
     </div>
+
 </body>
 </html>
