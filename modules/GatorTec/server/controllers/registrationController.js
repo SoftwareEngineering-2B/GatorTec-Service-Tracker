@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
-const account = require('../models/account.js');
+const user = require('../models/user.js');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 
+// Adds user to database; specifies their username, password, and role
 exports.register = function(req, res) {
-    account.register(new account({ username : req.body.username }), req.body.password, function(err, account) {
+    user.register(new user({ username : req.body.username, userRole: req.body.userRole }), req.body.userPassword, function(err, user) {
         if (err) {
           console.log('error');
           console.log(err);
