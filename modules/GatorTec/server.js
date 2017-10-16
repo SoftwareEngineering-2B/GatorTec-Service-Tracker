@@ -5,7 +5,7 @@ const app = express();
 
 // Routing files
 const repairOrderRouter = require('./server/routes/repairOrderRoutes.js');
-const employeeRouter = require('./server/routes/employeeRoutes.js');
+const userRouter = require('./server/routes/userRoutes.js');
 const registrationRouter = require('./server/routes/registrationRouter.js');
 
 // Connects to the mongoDB database using the mongoDB URI
@@ -18,7 +18,7 @@ app.use(express.static('client'));
 
 // Requests made to modify specific models are sent to the corresponding router
 app.use('/repairOrder', repairOrderRouter);
-app.use('/employee', employeeRouter);
+app.use('/user', userRouter);
 app.use('/register', registrationRouter);
 
 // Serves the homepage index.html
