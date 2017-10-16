@@ -4,17 +4,18 @@ const Schema = mongoose.Schema;
 // Model for the repairOrder
 let repairOrder = new Schema ({
 
+  sroID: String,
   customerName: String,
-  customerEmail: String,
   customerPhoneNumber: String,
-
-  sroNumber: String,
-  repairStatus: String,
+  customerEmail: String,
+  deviceType: String,
+  serialNumber: String,
+  status: String,
   dateCreated: String,
-  technicianNotes: String,
-  deviceID: String,
-  deviceFamily: String,
-  deviceDescription: String
+  dateModified: String,
+  problemDescription: String,
+  workPerformed: String,
+  blacklist: Boolean
 
 });
 
