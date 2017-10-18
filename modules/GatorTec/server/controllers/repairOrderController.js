@@ -34,9 +34,9 @@ exports.getAllRepairOrders = function(req, res){
 // Edit a repairOrder by sro number
 exports.edit = function(req, res){
 
-  let sroNumber = req.body.sroNumber;
+  let sroID = req.body.sroID;
 
-  repairOrder.findOneAndUpdate({ sroNumber: sroNumber }, { deviceID: "iphone" }, { new: true }, function(err, repairOrder){
+  repairOrder.findOneAndUpdate({ sroID: sroID }, { deviceType: "iphone" }, { new: true }, function(err, repairOrder){
     if(err){
       res.status(403).send('Bad Request');
     }
@@ -49,9 +49,9 @@ exports.edit = function(req, res){
 // BlackList a repairOrder by sro number
 exports.blacklist = function(req, res){
 
-  let sroNumber = req.body.sroNumber;
+  let sroID = req.body.sroID;
 
-  repairOrder.findOneAndUpdate({ sroNumber: sroNumber }, { repairStatus: "blacklisted" }, { new: true }, function(err, repairOrder){
+  repairOrder.findOneAndUpdate({ sroID: sroID }, { status: "blacklisted" }, { new: true }, function(err, repairOrder){
     if(err){
       res.status(500).send('Internal Server Error');
     }
@@ -64,9 +64,9 @@ exports.blacklist = function(req, res){
 // Delete an repairOrder by sro number
 exports.delete = function(req, res){
 
-  let sroNumber = req.body.sroNumber;
+  let sroID = req.body.sroID;
 
-  repairOrder.findOneAndRemove({ sroNumber: sroNumber }, function(err, repairOrder){
+  repairOrder.findOneAndRemove({ sroID: sroID }, function(err, repairOrder){
     if(err){
       res.status(500).send('Internal Server Error');
     }
