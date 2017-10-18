@@ -8,9 +8,9 @@ exports.add = function(req, res){
 
   user.create(user, function(err, user){
     if(err){
-      console.log(err);
+      res.status(403).send('Bad Request');
     }
-    console.log(user);
+
     res.status(200).send(user);
   });
 
@@ -21,9 +21,9 @@ exports.getAllUsers = function(req, res){
 
   user.find({}, function(err, users){
     if(err){
-      console.log(err);
+      res.status(500).send('Internal Server Error');
     }
-    console.log(users);
+
     res.status(200).send(users);
   });
 
@@ -36,9 +36,9 @@ exports.edit = function(req, res){
 
   user.findOneAndUpdate({ userEmail: userEmail }, { userType: "admin" }, { new: true }, function(err, user){
     if(err){
-      console.log(err);
+      res.status(403).send('Bad Request');
     }
-    console.log(user);
+
     res.status(200).send(user);
   });
 
@@ -51,9 +51,9 @@ exports.delete = function(req, res){
 
   user.findOneAndRemove({ userEmail: userEmail }, function(err, user){
     if(err){
-      console.log(err);
+      res.status(500).send('Internal Server Error');
     }
-    console.log(user);
+
     res.status(200).send(user);
   });
 

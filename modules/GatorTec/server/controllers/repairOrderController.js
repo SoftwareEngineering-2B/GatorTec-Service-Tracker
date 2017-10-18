@@ -8,9 +8,9 @@ exports.add = function(req, res){
 
   repairOrder.create(sro, function(err, sro){
     if(err){
-      console.log(err);
+      res.status(403).send('Bad Request');
     }
-    console.log(sro);
+
     res.status(200).send(sro);
   });
 
@@ -23,9 +23,9 @@ exports.getAllRepairOrders = function(req, res){
 
   repairOrder.find({ customerEmail: customerEmail }, function(err, repairOrders){
     if(err){
-      console.log(err);
+      res.status(500).send('Internal Server Error');
     }
-    console.log(repairOrders);
+
     res.status(200).send(repairOrders);
   });
 
@@ -38,9 +38,9 @@ exports.edit = function(req, res){
 
   repairOrder.findOneAndUpdate({ sroNumber: sroNumber }, { deviceID: "iphone" }, { new: true }, function(err, repairOrder){
     if(err){
-      console.log(err);
+      res.status(403).send('Bad Request');
     }
-    console.log(repairOrder);
+
     res.status(200).send(repairOrder);
   });
 
@@ -53,9 +53,9 @@ exports.blacklist = function(req, res){
 
   repairOrder.findOneAndUpdate({ sroNumber: sroNumber }, { repairStatus: "blacklisted" }, { new: true }, function(err, repairOrder){
     if(err){
-      console.log(err);
+      res.status(500).send('Internal Server Error');
     }
-    console.log(repairOrder);
+
     res.status(200).send(repairOrder);
   });
 
@@ -68,9 +68,9 @@ exports.delete = function(req, res){
 
   repairOrder.findOneAndRemove({ sroNumber: sroNumber }, function(err, repairOrder){
     if(err){
-      console.log(err);
+      res.status(500).send('Internal Server Error');
     }
-    console.log(repairOrder);
+
     res.status(200).send(repairOrder);
   });
 
