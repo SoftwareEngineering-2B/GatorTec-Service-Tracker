@@ -8,7 +8,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     }
   );
 
-    $scope.addListing = function() {
+    /*$scope.addListing = function() {
       $scope.listings.push($scope.newListing);
       $scope.newListing = {};
     };
@@ -17,7 +17,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       $scope.listings.splice($scope.listings.indexOf(index),1);
     };
 
-    /*$scope.showDetails = function(index) {
+    $scope.showDetails = function(index) {
       $scope.detailedInfo = {'name':index.name, 'address':index.address, 'code':index.code}
     };*/
   }

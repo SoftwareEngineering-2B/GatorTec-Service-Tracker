@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body ng-app="gatorTecApp">
+
+  <body ng-app="gatorTecApp"> 
+
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">My Support</div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>Hello, {{listings[0].customerName}}</li>
+              <li><!-- <a href="#"> -->Logout<!-- </a> --></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
     <div class="container">
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-8"></div>
@@ -13,6 +28,7 @@
         </div>
       </div>
     </div>
+
     <div class="container">
       <div class="row justify-content-md-center" ng-controller="ListingsController">
         <div class="col-md-4">{LIST OF DEVICES GOES HERE}</div>
@@ -24,6 +40,7 @@
         </div>
       </div>
     </div>
+
     <div class="container">
       <div class="row justify-content-md-center" ng-controller="ListingsController">
         <div class="col-md-4"></div>
@@ -33,11 +50,13 @@
         </div>
       </div>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
+    <script src="app/app.js"></script>
+    <script src="factories/listingFactory.js"></script>
+    <script src="controllers/listingController.js"></script>
   </body>
+
 </html>
