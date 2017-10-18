@@ -6,7 +6,6 @@ const app = express();
 // Routing files
 const repairOrderRouter = require('./server/routes/repairOrderRoutes.js');
 const userRouter = require('./server/routes/userRoutes.js');
-const registrationRouter = require('./server/routes/registrationRouter.js');
 
 // Connects to the mongoDB database using the mongoDB URI
 mongoose.connect('mongodb://meanjs:meanjs@ds139844.mlab.com:39844/meanjs-swe', { useMongoClient: true }, function(){
@@ -19,7 +18,6 @@ app.use(express.static('client'));
 // Requests made to modify specific models are sent to the corresponding router
 app.use('/repairOrder', repairOrderRouter);
 app.use('/user', userRouter);
-app.use('/register', registrationRouter);
 
 // Serves the homepage index.html
 app.get('/', function(req, res){
