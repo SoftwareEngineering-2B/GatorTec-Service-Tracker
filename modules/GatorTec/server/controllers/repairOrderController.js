@@ -36,7 +36,7 @@ exports.getAllRepairOrdersByEmail = function(req, res){
 
   let username = req.body.username;
 
-  repairOrder.find({ customerEmail: username, blacklisted: false }, function(err, repairOrders){
+  repairOrder.find({ customerEmail: username, blacklist: false }, function(err, repairOrders){
 
     if(err){
       res.status(500).send('Internal Server Error');
