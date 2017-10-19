@@ -1,12 +1,46 @@
-#searchBar {
-  margin: 15px 10px;
-}
-
 body {
-    padding-top: 65px;
+  padding-top: 65px;
 }
 
-.tableWrapper {
-  max-height: 400px;
-  overflow: auto;
+.text {
+color: white;
+}
+
+.nav-header {
+font-size: 25px;
+padding: 10px 0px 0px 10px;
+}
+
+.center-bar {
+text-align: center;
+padding: 17px 0px 10px 0px;
+font-size: 14px;
+}
+
+.nav-space {
+text-align: center;
+padding: 19px 10px 10px 10px;
+font-size: 14px;
+}
+
+.device-container {
+margin: 40px 20px 40px -60px;
+border-radius: 7px;
+}
+
+img {
+width: 96px;
+height: 191px;
+}
+
+a {
+margin: 0;
+border: 0;
+font-size: 110%;
+font: inherit;
+vertical-align: baseline;
+text-align: center;
+padding: 20px 10px 10px 7px;
+margin-top: 4px;
+margin-left: -5px;
 }
