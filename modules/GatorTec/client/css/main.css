@@ -3,7 +3,12 @@ body {
 }
 
 .text {
-color: white;
+color: black;
+}
+
+.nav-bottom-border {
+border-bottom: solid;
+border-color: rgba(211, 211, 211, 0.71);
 }
 
 .nav-header {
