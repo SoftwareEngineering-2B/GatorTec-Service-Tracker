@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+  <script src="../app/app.js"></script>
+  <script src="../factories/listingFactory.js"></script>
+  <script src="../controllers/listingController.js"></script>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
 
-  <body ng-app="gatorTecApp"> 
-    
+  <body ng-app="gatorTecApp">
+
     <nav class="navbar nav-bottom-border navbar-fixed-top">
       <div class="container-fluid">
-        <div class="navbar-header nav-header text">My Support</div>
+        <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right text" ng-controller="ListingsController">
             <li class="nav-space">Hello, {{listings[0].customerName}}</li>
             <li class="center-bar">|</li>
-            <li><a>Sign out</a></li>
+            <li><a>Sign Out</a></li>
           </ul>
         </div>
       </div>
     </nav>
-    
+
     <div class="container">
       <div class="row" ng-controller="ListingsController" align="center">
-            
+
         <!-- DEVICE LIST GOES HERE -->
         <div class="col-md-3 device-container">
-          <img src="../images/iphone.png">
+          <i style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-mobile circle-no"></i>
           <h4>{{listings[0].device.description}}</h4>
-          <div>{{listings[0].device.serialNum}}</div>
+          <div>Serial Number: {{listings[0].device.serialNum}}</div>
         </div>
-    
-    
-        <div class="col-md-8">
-    
+
+        <div class="col-md-8" style="top: 50%;">
+
           <h1>Repair Status</h1>
-          <div>ID: {{listings[0].sroID}}</div>
+          <div>SRO ID: {{listings[0].sroID}}</div><br>
 
           <div>
             <!-- PROGRESS BAR -->
             <div class="progress">
               <div class="progress-bar progress-bar-striped active" role="progressbar"
               aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                40%
+              40%
               </div>
             </div>
           </div>
 
-          <div>{{listings[0].status}}</div>
-    
+          <h2>Your repair is in progress.</h2>
+
+          <div>Current Status: {{listings[0].status}}</div>
+
           <div>
-            <div>{{listings[0].dateCreated}}</div>
-            <p>{{listings[0].notes}}</p>
+            <div>Date Created: {{listings[0].dateCreated}}</div>
           </div>
-    
         </div>
-    
-    
       </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="../app/app.js"></script>
-    <script src="../factories/listingFactory.js"></script>
-    <script src="../controllers/listingController.js"></script>
   </body>
 
 </html>
