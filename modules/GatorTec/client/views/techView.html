@@ -12,7 +12,7 @@
 
     <nav class="navbar nav-bottom-border navbar-fixed-top">
       <div class="container-fluid">
-        <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
+        <div class="navbar-header nav-header text">GatorTec Service Tracker<span style="color:white"> - Technician</span></div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right text" ng-controller="ListingsController">
             <li class="nav-space">Hello, {{listings[0].customerName}}</li>
@@ -23,7 +23,7 @@
       </div>
     </nav>
 
-    <div class="col-sm-5 col-md-5 col-lg-5" style="padding-left: 2%;">
+    <div class="col-sm-5 col-md-5 col-lg-5" style="padding-left: 5%; color: #4C88BE;">
       <div class="row" style="padding-right: 2%">
         <h1 align="center">Technician - Customers</h1>
       </div>
@@ -87,7 +87,7 @@
           <div style="padding-top: 8%">
             <p style="font-size: 14px">{{customer.probDesc}}</p>
             <p style="font-size: 14px">{{customer.workPref}}</p>
-            <p style="font-size: 14px">{{customer.notes}}</p>
+            <p style="font-size: 14px">{{customer.blacklistStatus}}</p>
           </div>
 
           <div class="col-md-6">
