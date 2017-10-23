@@ -14,9 +14,11 @@
     <div class="wrapper" ng-app="myApp" ng-controller="loginController">
     <form class="form-signin">
       <h2 class="form-signin-heading" align="center">Login</h2>
-      <input type="email" ng-model="email" class="form-control" id="email" name="email" size="64" placeholder="Email Address" required autofocus />
+      Email:
+      <input type="email" ng-model="email" class="form-control" id="email" name="email" size="64" placeholder="Ex. butler@gatortec.com" required autofocus />
       <br/>
-      <input type="tel" ng-model="phone" class="form-control" id="phone" name="phone" placeholder="Phone Number" size="10"
+      Phone Number:
+      <input type="tel" ng-model="phone" class="form-control" id="phone" name="phone" placeholder="Ex. 3525057582" size="10"
       pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required/>
       <br/>
       <button class="btn btn-lg btn-primary btn-block" ng-click="login()" type="submit">Login</button>
