@@ -30,12 +30,74 @@ font-size: 14px;
 
 .device-container {
 margin: 40px 20px 40px -60px;
+width: 250px;
 border-radius: 7px;
+position: relative;
+overflow: hidden;
+/*background-color: lightyellow;*/
 }
 
-img {
-width: 96px;
-height: 191px;
+table {
+display: block;
+height: 400px;
+overflow-y: scroll;
+border-collapse: separate;
+border-spacing: 10px 5px;
+padding-right: 17px;
+}
+
+.arrows {
+border: none;
+background: none;
+height: 30px;
+width: 40px;
+margin: 0;
+padding: 0;
+font-size: 30px;
+color:#6797be
+}
+
+.arrows:hover {
+color:#013E6E
+}
+
+.serial-font {
+font-size: 15px;
+}
+
+.serial-dots {
+font-size: 11px;
+padding-bottom: 10px;
+}
+
+#div1, #div2 {
+display: inline;
+}
+
+i {
+margin: 0 0 -20px 0;
+text-align: center;
+align-self: auto;
+}
+
+.div-i {
+text-align: center;
+padding: 0 10px;
+}
+
+td:hover {
+border-radius: 10px;
+box-shadow: 0 0 10px grey;
+}
+
+td:active {
+box-shadow: inset 0 0 10px grey;
+background-color: lightgrey;
+}
+
+td:focus {
+box-shadow: inset 0 0 10px grey;
+background-color: lightgrey;
 }
 
 a {
@@ -44,8 +106,30 @@ border: 0;
 font-size: 110%;
 font: inherit;
 vertical-align: baseline;
+text-decoration: none;
 text-align: center;
-padding: 20px 10px 10px 7px;
-margin-top: 4px;
-margin-left: -5px;
+}
+
+table, a {
+padding: 20px;
+}
+
+a:hover {
+text-decoration: none;
+}
+
+a:active {
+text-decoration: none;
+}
+
+a:visited {
+text-decoration: none;
+}
+
+a:link {
+text-decoration: none;
+}
+
+.sro-id {
+padding-bottom: 20px;
 }

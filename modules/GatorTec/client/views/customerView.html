@@ -13,36 +13,61 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
 
-  <body ng-app="gatorTecApp">
-
+  <body ng-app="gatorTecApp"> 
+    
     <nav class="navbar nav-bottom-border navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right text" ng-controller="ListingsController">
-            <li class="nav-space">Hello, {{listings[0].customerName}}</li>
+            <li class="nav-space">Hello, {{currentDevice.customerName}}</li>
             <li class="center-bar">|</li>
-            <li><a>Sign Out</a></li>
+            <li><a>Sign out</a></li>
           </ul>
         </div>
       </div>
     </nav>
-
+    
     <div class="container">
       <div class="row" ng-controller="ListingsController" align="center">
-
-        <!-- DEVICE LIST GOES HERE -->
+            
+    
         <div class="col-md-3 device-container">
-          <i style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-mobile circle-no"></i>
-          <h4>{{listings[0].device.description}}</h4>
-          <div>Serial Number: {{listings[0].device.serialNum}}</div>
+          <a href="#top" class="arrows">
+            <span class="glyphicon glyphicon-menu-up arrows" aria-hidden="true"></span>
+          </a>
+          <table>
+            <tr id="top"></tr>
+            <tr ng-repeat="listing in listings" ng-click="switchDevice(listing)">
+              <td>
+                <a href="#">
+                  <div class="div-i">
+                    <!-- iPhone --><i ng-show="listing.device.description.indexOf('iPhone')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-mobile circle-no"></i>
+                    <!-- Mac --><i ng-show="listing.device.description == 'Mac'" style="background-color:transparent;border-color:transparent;height:93px;width: 110px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-desktop circle-no"></i>
+                    <!-- iPad & iPod --><i ng-show="listing.device.description == 'iPad' || listing.device.description == 'iPod'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-tablet circle-no"></i>
+                    <!-- Apple Watch --><i ng-show="listing.device.description == 'Apple Watch'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-clock-o circle-no"></i>
+                    <!-- Beats & More --><i ng-show="listing.device.description == 'Beats'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-headphones circle-no"></i>
+                  </div>
+                  <h3>{{listing.device.description}}</h3>
+                  <div>
+                    <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.device.serialNum.substr(7, 11)}}</div>
+                  </div>
+                </a>
+              </td>
+            </tr>
+            <tr id="bottom"></tr>
+          </table>
+          <a href="#bottom" class="arrows">
+            <span class="glyphicon glyphicon-menu-down arrows" aria-hidden="true"></span>
+          </a>
         </div>
-
+    
+    
         <div class="col-md-8" style="top: 50%;">
-
+    
           <h1>Repair Status</h1>
-          <div>SRO ID: {{listings[0].sroID}}</div><br>
-
+          <div class="sro-id">SRO ID: {{currentDevice.sroID}}</div>
+    
           <div>
             <!-- PROGRESS BAR -->
             <div class="progress">
@@ -52,16 +77,20 @@
               </div>
             </div>
           </div>
+    
           <div align="left" style="padding-left: 10px;">
             <h2>Your repair is in progress.</h2>
-
-            Current Status: {{listings[0].status}}<br>
-
-            Date Created: {{listings[0].dateCreated}}
+      
+            Current Status: {{currentDevice.status}}<br>
+      
+            Date Created: {{currentDevice.dateCreated}}
           </div>
+    
         </div>
+    
       </div>
     </div>
+    
   </body>
 
 </html>
