@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/adminPage.css">
+    <link rel="stylesheet" href="../css/adminView.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
@@ -10,12 +10,26 @@
   </head>
 
   <body>
-    <div class="topnav" id="myTopnav">
-      <a href="adminPageCustomers.html">Customers</a>
-      <a href="adminPageUsers.html">Users</a>
-      <a href="adminPageDB.html">Database</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
+    <nav class="navbar nav-bottom-border navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
+        <div class="navbar-header nav-header dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Database
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="adminViewCustomers.html">Customer</a></li>
+            <li><a href="adminViewUsers.html">Users</a></li>
+          </ul>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right text" ng-controller="ListingsController">
+            <li class="nav-space">Hello, {{listings[0].customerName}}</li>
+            <li class="center-bar">|</li>
+            <li><a>Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <div class="col-sm-5 col-md-5 col-lg-5" style="padding-left: 2%;">
       <div class="row" style="padding-right: 2%">
