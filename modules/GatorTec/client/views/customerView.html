@@ -47,9 +47,9 @@
                     <!-- Apple Watch --><i ng-show="listing.device.description == 'Apple Watch'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-clock-o circle-no"></i>
                     <!-- Beats & More --><i ng-show="listing.device.description == 'Beats'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-headphones circle-no"></i>
                   </div>
-                  <h3>{{listing.device.description}}</h3>
+                  <h3>{{listing.deviceType}}</h3>
                   <div>
-                    <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.device.serialNum.substr(7, 11)}}</div>
+                    <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.serialNumber.substr(7, 11)}}</div>
                   </div>
                 </a>
               </td>
@@ -95,9 +95,9 @@
                           <!-- Apple Watch --><i ng-show="listing.device.description == 'Apple Watch'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-clock-o circle-no"></i>
                           <!-- Beats & More --><i ng-show="listing.device.description == 'Beats'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-headphones circle-no"></i>
                         </div>
-                        <h3>{{listing.device.description}}</h3>
+                        <h3>{{listing.deviceType}}</h3>
                         <div>
-                          <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.device.serialNum.substr(7, 11)}}</div>
+                          <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.serialNumber.substr(7, 11)}}</div>
                         </div>
                       </a>
                     </td>
