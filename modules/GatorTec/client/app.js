@@ -17,6 +17,16 @@
           templateUrl: './views/customerView.html',
           controller:'customerController'
         });
+        // .state('technician', {
+        //   url: 'technician',
+        //   templateUrl: './views/technicianView.html',
+        //   controller: 'technicianController'
+        // })
+        // .state('admin', {
+        //   url: '/admin',
+        //   templateUrl: './views/adminView.html',
+        //   controller: 'adminController'
+        // });
 
     });
 
