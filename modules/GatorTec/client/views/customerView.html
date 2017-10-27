@@ -1,135 +1,137 @@
-        <nav class="navbar nav-bottom-border navbar-fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right text">
-                <li class="nav-space">Hello, {{currentDevice.customerName}}</li>
-                <li class="center-bar">|</li>
-                <li><a>Sign out</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-    
-        <div class="container">
-    
-          <!-- HORIZONTAL DEVICE BAR -->
+<nav class="navbar nav-bottom-border navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right text">
+        <li class="nav-space">Hello, {{currentDevice.customerName}}</li>
+        <li class="center-bar">|</li>
+        <li><a>Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HORIZONTAL DEVICE BAR -->
+  <center>
+    <div class="row alignment">
+      <div class="hori-device-container alignment">
+        <div class="div_hori_table alignment">
+          <h3>Your Devices:</h3>
           <center>
-            <div class="row alignment">
-              <div class="hori-device-container alignment">
-                <div class="div_hori_table alignment">
-                  <h3>Your Devices:</h3>
-                  <table class="horizontal_table">
-                    <tr>
-                      <td id="left"></td>
-                      <td ng-repeat="listing in listings" class="device_td" ng-click="switchDevice(listing)">
-                        <a href="#">
-                          <div class="div-i">
-                            <!-- iPhone --><i ng-show="listing.deviceType.indexOf('iPhone')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-mobile circle-no"></i>
-                            <!-- Mac --><i ng-show="listing.deviceType == 'Mac'" style="background-color:transparent;border-color:transparent;height:93px;width: 110px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-desktop circle-no"></i>
-                            <!-- iPad & iPod --><i ng-show="listing.deviceType == 'iPad' || listing.deviceType == 'iPod'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-tablet circle-no"></i>
-                            <!-- Apple Watch --><i ng-show="listing.deviceType == 'Apple Watch'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-clock-o circle-no"></i>
-                            <!-- Beats & More --><i ng-show="listing.deviceType == 'Beats'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-headphones circle-no"></i>
-                          </div>
-                          <h3>{{listing.deviceType}}</h3>
-                          <div>
-                            <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.serialNumber.substr(7, 11)}}</div>
-                          </div>
-                        </a>
-                      </td>
-                      <td id="right"></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-    
-              <!-- LEFT/RIGHT ARROWS -->
-              <!--
-              <div class="row">
-                <a href="#left" class="arrows">
-                  <span class="glyphicon glyphicon-menu-left arrows" aria-hidden="true"></span>
-                </a>
-                <a href="#right" class="arrows">
-                  <span class="glyphicon glyphicon-menu-right arrows" aria-hidden="true"></span>
-                </a>
-              </div>
-              -->
-    
-            </div>
-          </center>
-          
-    
-          <div class="row alignment">       
-            <div class="repair-container alignment">
-    
-              <h1>Repair Status</h1>
-              <div class="sro-id">SRO ID: {{currentDevice.sroID}}</div>
-    
-              <div class="progress-container">
-                <div class="div_progress_table">
-                  <center>
-                    <table class="progress_table">
-                      <tr>
-                        <td>
-                          <!-- PROGRESS BAR 1 -->
-                          <div class="progress progress_bar">
-                            <div class="progress-bar progress-bar-striped active" role="progressbar"
-                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                              100%
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <!-- PROGRESS BAR 2 -->
-                          <div class="progress progress_bar">
-                            <div class="progress-bar progress-bar-striped active" role="progressbar"
-                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-                              50%
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <!-- PROGRESS BAR 3 -->
-                          <div class="progress progress_bar">
-                            <div class="progress-bar progress-bar-striped active" role="progressbar"
-                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"style="width: 0%">
-                              0%
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr class="progress_words">
-                          <td>
-                            Product received in store
-                          </td>
-                          <td>
-                            Repair in progress
-                          </td>
-                          <td>
-                            Product pickup pending
-                          </td>
-                        </tr>
-                    </table>
-                  </center>
-                </div>
-              </div>
-    
-              <center>
-                <div class="total_notes_div alignment">
-                  <div align="left">
-                    <h2>Your repair is in progress.</h2>
-    
-                    <div class="notes-div">
-                      <h3 class="date">{{currentDevice.dateCreated}}:</h3>
-                      <div class="status_notes">
-                        Current Status: {{currentDevice.status}}
-                      </div>
+            <table class="horizontal_table">
+              <tr>
+                <td id="left"></td>
+                <td ng-repeat="listing in listings" class="device_td" ng-click="switchDevice(listing)">
+                  <a href="#">
+                    <div class="div-i">
+                      <!-- iPhone --><i ng-show="listing.device.description.indexOf('iPhone')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-mobile circle-no"></i>
+                      <!-- Mac --><i ng-show="listing.device.description == 'Mac'" style="background-color:transparent;border-color:transparent;height:93px;width: 110px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-desktop circle-no"></i>
+                      <!-- iPad & iPod --><i ng-show="listing.device.description == 'iPad' || listing.device.description == 'iPod'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-tablet circle-no"></i>
+                      <!-- Apple Watch --><i ng-show="listing.device.description == 'Apple Watch'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-clock-o circle-no"></i>
+                      <!-- Beats & More --><i ng-show="listing.device.description == 'Beats'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-headphones circle-no"></i>
                     </div>
-    
+                    <h3>{{listing.device.description}}</h3>
+                    <div>
+                      <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.device.serialNum.substr(7, 11)}}</div>
+                    </div>
+                  </a>
+                </td>
+                <td id="right"></td>
+              </tr>
+            </table>
+          </center>
+        </div>
+      </div>
+
+      <!-- LEFT/RIGHT ARROWS -->
+      <!--
+      <div class="row">
+        <a href="#left" class="arrows">
+          <span class="glyphicon glyphicon-menu-left arrows" aria-hidden="true"></span>
+        </a>
+        <a href="#right" class="arrows">
+          <span class="glyphicon glyphicon-menu-right arrows" aria-hidden="true"></span>
+        </a>
+      </div>
+      -->
+
+    </div>
+  </center>
+  
+
+  <div class="row alignment">       
+    <div class="repair-container alignment">
+
+      <h1>Repair Status</h1>
+      <div class="sro-id">SRO ID: {{currentDevice.sroID}}</div>
+
+      <div class="progress-container">
+        <div class="div_progress_table">
+          <center>
+            <table class="progress_table">
+              <tr>
+                <td>
+                  <!-- PROGRESS BAR 1 -->
+                  <div class="progress progress_bar">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                      100%
+                    </div>
                   </div>
-                </div>
-              </center>
-    
+                </td>
+                <td>
+                  <!-- PROGRESS BAR 2 -->
+                  <div class="progress progress_bar">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                      50%
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <!-- PROGRESS BAR 3 -->
+                  <div class="progress progress_bar">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"style="width: 0%">
+                      0%
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="progress_words">
+                  <td>
+                    Product received in store
+                  </td>
+                  <td>
+                    Repair in progress
+                  </td>
+                  <td>
+                    Product pickup pending
+                  </td>
+                </tr>
+            </table>
+          </center>
+        </div>
+      </div>
+
+      <center>
+        <div class="total_notes_div alignment">
+          <div align="left">
+            <h2>Your repair is in progress.</h2>
+
+            <div class="notes-div">
+              <h3 class="date">{{currentDevice.dateCreated}}:</h3>
+              <div class="status_notes">
+                Current Status: {{currentDevice.status}}
+              </div>
             </div>
+
           </div>
         </div>
+      </center>
+
+    </div>
+  </div>
+</div>
