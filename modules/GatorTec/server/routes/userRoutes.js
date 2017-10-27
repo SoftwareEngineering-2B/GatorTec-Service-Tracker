@@ -1,10 +1,11 @@
 const user = require('../controllers/userController.js');
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 
 // Defining routes for the different kinds of request made for a user
-router.route('/add')              // Create middleware that will check that the username/email is not already taken
-  .post(user.add);
+router.route('/add')
+  .post(passport.authenticate('local.register', {}));
 
 router.route('/getAllusers')
   .get(user.getAllUsers);
@@ -15,4 +16,7 @@ router.route('/getAllusers')
 router.route('/delete')
   .delete(user.delete);
 
+router.route('/login')
+  .post(user.login);
+// passport.authenticate('local.login', {}),
 module.exports = router;
