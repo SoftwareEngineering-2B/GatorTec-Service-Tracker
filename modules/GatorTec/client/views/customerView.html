@@ -26,15 +26,15 @@
                 <td ng-repeat="listing in listings" class="device_td" ng-click="switchDevice(listing)">
                   <a href="#">
                     <div class="div-i">
-                      <!-- iPhone --><i ng-show="listing.device.description.indexOf('iPhone')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-mobile circle-no"></i>
-                      <!-- Mac --><i ng-show="listing.device.description == 'Mac'" style="background-color:transparent;border-color:transparent;height:93px;width: 110px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-desktop circle-no"></i>
-                      <!-- iPad & iPod --><i ng-show="listing.device.description == 'iPad' || listing.device.description == 'iPod'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-tablet circle-no"></i>
-                      <!-- Apple Watch --><i ng-show="listing.device.description == 'Apple Watch'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-clock-o circle-no"></i>
-                      <!-- Beats & More --><i ng-show="listing.device.description == 'Beats'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-headphones circle-no"></i>
+                      <!-- iPhone --><i ng-show="listing.deviceType.indexOf('iPhone')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-mobile circle-no"></i>
+                      <!-- Mac --><i ng-show="listing.deviceType == 'Mac'" style="background-color:transparent;border-color:transparent;height:93px;width: 110px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-desktop circle-no"></i>
+                      <!-- iPad & iPod --><i ng-show="listing.deviceType == 'iPad' || listing.deviceType == 'iPod'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-tablet circle-no"></i>
+                      <!-- Apple Watch --><i ng-show="listing.deviceType == 'Apple Watch'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-clock-o circle-no"></i>
+                      <!-- Beats & More --><i ng-show="listing.deviceType == 'Beats'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:100px;" class="fa fontawesome-icon fa-headphones circle-no"></i>
                     </div>
-                    <h3>{{listing.device.description}}</h3>
+                    <h3>{{listing.deviceType}}</h3>
                     <div>
-                      <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.device.serialNum.substr(7, 11)}}</div>
+                      <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.serialNumber.substr(7, 11)}}</div>
                     </div>
                   </a>
                 </td>
