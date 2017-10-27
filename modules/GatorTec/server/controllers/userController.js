@@ -1,28 +1,11 @@
 const mongoose = require('mongoose');
 const user = require('../models/user.js');
-const passport = require('passport');
-const passportLocalMongoose = require('passport-local-mongoose');
+// const passport = require('passport');
 
 // Add an user
-exports.add = function(req, res){
+// exports.add = function(req, res){
 
-  let username = req.body.username;
-  let userRole = req.body.userRole;
-  let userPassword = req.body.userPassword;
-
-  user.register(new user({ username : username, userRole: userRole }), userPassword, function(err, user) {
-
-      if (err) {
-          return res.status(403).send("Bad Request");
-      }
-
-      passport.authenticate('local')(req, res, function () {
-          res.redirect('/');
-      });
-
-  });
-
-};
+// };
 
 // Get all users
 exports.getAllUsers = function(req, res){
@@ -69,3 +52,17 @@ exports.delete = function(req, res){
   });
 
 };
+
+exports.login = function(req, res){
+
+  console.log(req.body);
+
+};
+
+// function isLoggedIn(req, res, next){
+//   if(req.isAuthenticated()){
+//     return next();
+//   }
+//
+//   res.redirect('/loginView');
+// };
