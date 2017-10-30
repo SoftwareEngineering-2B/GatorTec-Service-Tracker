@@ -4,13 +4,15 @@
   angular.module('httpService', [])
   .service('httpAPI', ['$http', '$state', function($http, $state) {
 
-    this.getAllRepairOrders = function(){
-      $http({
+     this.getAllRepairOrders = function(){
+      return $http({
         method: 'GET',
         url: 'http://localhost:8080/repairOrder/getAllRepairOrders'
       })
       .then(function successCallback(response){
-        console.log(response);
+        console.log(response.data);
+        return response.data;
+
       }, function errorCallback(response){
         console.log(response);
       });

@@ -32,7 +32,7 @@
       </div>
 
       <div class="row" style="padding-right: 2%">
-        
+
         <div>
           <div class="input-group" id="searchBar">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
@@ -55,10 +55,10 @@
               </tr>
 
               <tr ng-repeat="customer in customers" ng-repeat= "eachCustomer in customers.status">
-                <th>{{customer.sro}}</th>
-                <th>{{customer.name}} </th>
-                <th>{{customer.phone}}</th>
-                <th>{{customer.checkinDate}} </th>
+                <td>{{customer.sroID}}</td>
+                <td>{{customer.customerName}}</td>
+                <td>{{customer.customerPhoneNumber}}</td>
+                <td>{{customer.dateCreated}}</td>
                 <th></th>
               </tr>
 
@@ -73,28 +73,26 @@
         <div class="jumbotron" style="padding-left: 5%; padding-right: 5%">
 
           <div class="col-md-6">
-            <h2>{{customer.sro}}</h2>
+            <h2>Customer SRO: {{customer.sroID}</h2>
           </div>
           <div>
             <p align="right" style="padding-right:4%; font-size: 14px">
-              {{customer.name}}<br/>{{customer.phone}}<br/>{{customer.date}}
+              {{customer.customerName}}<br/>{{customer.customerPhoneNumber}}
+              <br/>Last Modified: {{customer.dateModified}}
             </p>
           </div>
 
           <div class="col-md-4">
-            {{customer.device}}
+            Device: {{customer.deviceType}}
           </div>
           <div class="col-md-4">
-            {{customer.serialNum}}
-          </div>
-          <div class="col-md-4">
-            {{customer.warranty}}
+            Serial Number: {{customer.serialNumber}}
           </div>
 
           <div style="padding-top: 8%">
-            <p style="font-size: 14px">{{customer.probDesc}}</p>
-            <p style="font-size: 14px">{{customer.workPref}}</p>
-            <p style="font-size: 14px">{{customer.blacklistStatus}}</p>
+            <p style="font-size: 14px">Problem: {{customer.probDescription}}</p>
+            <p style="font-size: 14px">Work: {{customer.workPerformed}}</p>
+            <p style="font-size: 14px">Blacklist Status: {{customer.blacklistStatus}}</p>
           </div>
 
           <div class="col-md-3">
