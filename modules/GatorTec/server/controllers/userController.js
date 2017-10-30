@@ -3,9 +3,9 @@ const user = require('../models/user.js');
 // const passport = require('passport');
 
 // Add an user
-// exports.add = function(req, res){
-
-// };
+exports.add = function(req, res){
+  res.status(200).send();
+};
 
 // Get all users
 exports.getAllUsers = function(req, res){
@@ -54,15 +54,7 @@ exports.delete = function(req, res){
 };
 
 exports.login = function(req, res){
-
-  console.log(req.body);
-
+  let userRole = req['user'].userRole;
+  console.log(userRole);
+  res.status(200).send(userRole);
 };
-
-// function isLoggedIn(req, res, next){
-//   if(req.isAuthenticated()){
-//     return next();
-//   }
-//
-//   res.redirect('/loginView');
-// };
