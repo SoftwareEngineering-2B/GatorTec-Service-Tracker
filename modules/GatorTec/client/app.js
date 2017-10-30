@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('app', ['login', 'customer', 'technician', 'admin', 'ui.router'])
+  angular.module('app', ['login', 'customer', 'technician', 'admin', 'httpService', 'ui.router'])
     .config(function($stateProvider, $urlRouterProvider){
 
       $urlRouterProvider.otherwise('/login');
