@@ -2,15 +2,15 @@
   'use strict';
 
   angular.module('login', [])
-  .controller('loginController', [ '$scope', '$http', function($scope, $http) {
-    $scope.email = "";
-    $scope.phone = "";
+  .controller('loginController', [ '$scope', '$http', '$state', function($scope, $http, $state) {
+    $scope.field1 = "";
+    $scope.field2 = "";
 
     $scope.login = function(){
 
       let body = {
-        "username": $scope.email,
-        "userPassword": $scope.phone
+        "username": $scope.field1,
+        "userPassword": $scope.field2
       };
 
       $http({
@@ -19,11 +19,17 @@
         data: body
       })
       .then(function successCallback(response){
-        console.log('success');
-          console.log(response);
+        if(response.data == 'customer'){
+          $state.go('customer');
+        }
+        else if(response.data == 'technician'){
+          $state.go('technician');
+        }
+        else if(response.data == 'admin'){
+          $state.go('admin.users');
+        }
       }, function errorCallback(response){
         console.log('failure');
-          console.log(response);
       });
 
     };
