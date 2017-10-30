@@ -1,18 +1,51 @@
 const mongoose = require('mongoose');
 const repairOrder = require('../models/repairOrder.js');
+const user = require('../models/user.js');
+const passport = require('passport');
 
 // Add a repairOrder
-exports.add = function(req, res){
+exports.add = function(req, res, next){
 
-  let sro = req.body;
+  repairOrder.findOne({ "sroID": req.body.sroID }, function(err, existingRepairOrder){
+    if(!existingRepairOrder){
+      let sro = req.body;
 
-  repairOrder.create(sro, function(err, sro){
-
-    if(err){
-      res.status(403).send('Bad Request');
+      repairOrder.create(sro, function(err, sro){
+        if(err){
+          res.status(403).send('Bad Request');
+        }
+        console.log(sro);
+        next();
+      });
     }
+    else{
+      next();
+    }
+  });
 
-    res.status(200).send(sro);
+};
+
+exports.createUserFromSRO = function(req, res){
+
+  user.findOne({ "username": req.body.customerEmail, "userRole": 'customer' }, function(err, existingUser){
+    if(!existingUser){
+      let newUser = new user();
+      newUser.username = req.body.customerEmail;
+      newUser.userRole = 'customer';
+      newUser.userPassword = passport.encryptPassword(req.body.customerPhoneNumber);
+
+      user.create(newUser, function(err, newUser){
+        if(err){
+          res.status(403).send('Bad Request');
+        }
+
+        console.log(newUser);
+        res.status(200).send();
+      });
+    }
+    else{
+      res.status(200).send();
+    }
   });
 
 };
@@ -52,7 +85,7 @@ exports.blacklist = function(req, res){
 
   let sroID = req.body.sroID;
 
-  repairOrder.findOneAndUpdate({ sroID: sroID }, { blacklist: true }, { new: true }, function(err, repairOrder){
+  repairOrder.findOneAndUpdate({ sroID: sroID, blacklist: false }, { blacklist: true }, { new: true }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
@@ -68,7 +101,7 @@ exports.unblacklist = function(req, res){
 
   let sroID = req.body.sroID;
 
-  repairOrder.findOneAndUpdate({ sroID: sroID }, { blacklist: false }, { new: true }, function(err, repairOrder){
+  repairOrder.findOneAndUpdate({ sroID: sroID, blacklist: true}, { blacklist: false }, { new: true }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
