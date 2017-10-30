@@ -85,7 +85,7 @@ exports.blacklist = function(req, res){
 
   let sroID = req.body.sroID;
 
-  repairOrder.findOneAndUpdate({ sroID: sroID }, { blacklist: true }, { new: true }, function(err, repairOrder){
+  repairOrder.findOneAndUpdate({ sroID: sroID, blacklist: false }, { blacklist: true }, { new: true }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
@@ -101,7 +101,7 @@ exports.unblacklist = function(req, res){
 
   let sroID = req.body.sroID;
 
-  repairOrder.findOneAndUpdate({ sroID: sroID }, { blacklist: false }, { new: true }, function(err, repairOrder){
+  repairOrder.findOneAndUpdate({ sroID: sroID, blacklist: true}, { blacklist: false }, { new: true }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
