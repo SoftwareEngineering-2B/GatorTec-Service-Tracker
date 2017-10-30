@@ -15,11 +15,13 @@ exports.getAllUsers = function(req, res){
     if(err){
       res.status(500).send('Internal Server Error');
     }
-
+    res.json(users);
     res.status(200).send(users);
   });
 
 };
+
+
 
 // Edit an user by username/email
 // exports.edit = function(req, res){

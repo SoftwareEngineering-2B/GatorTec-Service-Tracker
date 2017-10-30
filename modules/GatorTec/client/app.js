@@ -6,6 +6,7 @@
 
       $urlRouterProvider.otherwise('/login');
 
+
       $stateProvider
         .state('login', {
           url: '/login',
@@ -42,6 +43,7 @@
           templateUrl: './views/adminView.database.html',
           controller: 'adminController'
         });
+
 
 
     });

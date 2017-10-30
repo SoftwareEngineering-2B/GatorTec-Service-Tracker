@@ -85,19 +85,14 @@ margin: 40px 20px 40px -60px;
 border-radius: 7px;
 }
 
-img {
-width: 96px;
-height: 191px;
+.collapse {
+  padding: 0px !important;
 }
 
-a {
-margin: 0;
-border: 0;
-font-size: 110%;
-font: inherit;
-vertical-align: baseline;
-text-align: center;
-padding: 20px 10px 10px 7px;
-margin-top: 4px;
-margin-left: -5px;
+.table {
+  padding: 0px;
+
+}
+#bootstrap-overrides table {
+  padding: 0px;
 }
