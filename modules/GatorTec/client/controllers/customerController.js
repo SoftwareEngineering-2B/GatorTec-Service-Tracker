@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('customer', [])
-  .controller('customerController', [ '$scope', '$http', function($scope, $http) {
+  .controller('customerController', ['$scope', 'httpAPI', function($scope, httpAPI) {
 
-
+    // httpAPI.getAllRepairOrdersByEmail();
 
   }]);
 })();
