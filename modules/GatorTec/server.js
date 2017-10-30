@@ -1,14 +1,14 @@
 const db = require('./server/config/db.js');
 const port = process.env.PORT || 8080;
+const mongoose = require('mongoose');
+const express = require('express');
+const app = express();
+
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const mongoose = require('mongoose');
-const express = require('express');
-const app = express();
 const mongoStore = require('connect-mongo')(expressSession);
-// const passportLocal = require('passport-local');
 
 // App Configuration
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,15 +16,14 @@ app.use(bodyParser.json());
 app.use(express.static('client'));
 app.use(cookieParser());
 app.use(expressSession({
-  secret: 'Software-Engineering-2B_GatorTec-Service-Tracker',
-  resave: true,
   saveUninitialized: true,
-  store: new mongoStore({ mongooseConnection: db })
+  resave: false,
+  store: new mongoStore({ mongooseConnection: db }),
+  secret: 'Software-Engineering-2B_GatorTec-Service-Tracker'
 }));
-
-// Passport Configuration
 app.use(passport.initialize());
 app.use(passport.session());
+
 require('./server/config/passport.js')(passport);
 
 // Routing files
