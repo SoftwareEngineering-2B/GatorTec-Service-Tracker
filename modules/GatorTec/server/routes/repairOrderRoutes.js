@@ -4,13 +4,13 @@ const router = express.Router();
 
 // Defining routes for the different kinds of request made for a repairOrder
 router.route('/add')            // Create middleware for getting largest sroID and incrementing then assign it to the new repair order
-  .post(repairOrder.add);
+  .post(repairOrder.add, repairOrder.createUserFromSRO);
 
 router.route('/getAllRepairOrders')
   .get(repairOrder.getAllRepairOrders);
 
-router.route('/getAllRepairOrdersByEmail')        // Get the GET request to accept parameters; Specifically username/email
-  .get(repairOrder.getAllRepairOrdersByEmail);
+router.route('/getAllRepairOrdersByEmail')
+  .post(repairOrder.getAllRepairOrdersByEmail);
 
   router.route('/blacklist')
   .put(repairOrder.blacklist);
