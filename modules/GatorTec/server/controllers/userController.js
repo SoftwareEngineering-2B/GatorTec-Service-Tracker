@@ -16,11 +16,12 @@ exports.getAllUsers = function(req, res){
       console.log(err);
       res.status(500).send('Internal Server Error');
     }
-
+    
     res.status(200).send(users);
   });
 
 };
+
 
 // Delete an user by username/email
 exports.delete = function(req, res){
