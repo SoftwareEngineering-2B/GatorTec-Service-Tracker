@@ -34,11 +34,11 @@
     });
 
     $scope.add = function(username, userPassword, userRole){
-      httpAPI.addUser(username, userPassword, userRole);
+      // httpAPI.addUser(username, userPassword, userRole);
     };
 
     $scope.delete = function(email){
-      httpAPI.deleteUser(email);
+      // httpAPI.deleteUser(email);
     };
 
   }])
