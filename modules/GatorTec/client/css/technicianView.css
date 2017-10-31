@@ -96,3 +96,8 @@ border-radius: 7px;
 #bootstrap-overrides table {
   padding: 0px;
 }
+
+.blacklisted {
+  background-color: #2d2d2d !important;
+  color: white !important;
+}

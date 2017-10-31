@@ -22,10 +22,12 @@
 
     <!-- <div class=""> -->
       <div class="panel-group" ng-repeat="customer in customers" style="margin-bottom: 0px">
-        <div class="panel panel-default" data-toggle="collapse" data-target="#accordion{{customer.sroID}}">
+        <div class="panel panel-default">
 
-          <div class="panel-heading">
-            <h4 class="panel-title">{{customer.sroID + ' '}}|{{' ' + customer.customerName + ' '}}|{{' ' + customer.customerPhoneNumber + ' '}}|{{' ' + customer.customerEmail}}</h4>
+          <div class="panel-heading" ng-class="{'blacklisted':customer.blacklist}">
+            <h4 class="panel-title" data-toggle="collapse" data-target="#accordion{{customer.sroID}}">{{customer.sroID + ' '}}|{{' ' + customer.customerName + ' '}}|{{' ' + customer.customerPhoneNumber + ' '}}|{{' ' + customer.customerEmail}}</h4>
+            <button class="btn btn-sm btn-warning"type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
+            <button class="btn btn-sm btn-warning"type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
           </div>
           <div class="panel-collapse collapse" id="accordion{{customer.sroID}}">
             <!-- <div class="container"> -->

@@ -41,9 +41,9 @@
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
+        return response;
       }, function errorCallback(response){
-        console.log(response);
+        return response;
       });
 
     };
@@ -58,9 +58,9 @@
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
+        return response;
       }, function errorCallback(response){
-        console.log(response);
+        return response;
       });
 
     };
