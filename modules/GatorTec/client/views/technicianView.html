@@ -12,47 +12,48 @@
   </nav>
 
   <div>
+
     <div>
       <h1 align="center">Technician - Customers</h1>
     </div>
+
     <div class="input-group" id="searchBar">
       <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-      <input type="text" class="form-control" placeholder="Search">
+      <input type="text" class="form-control" placeholder="Search" ng-model="searchCustomer">
     </div>
 
-    <!-- <div class=""> -->
-      <div class="panel-group" ng-repeat="customer in customers" style="margin-bottom: 0px">
+      <div class="panel-group" ng-repeat="customer in customers | filter:searchCustomer" style="margin-bottom: 0px">
         <div class="panel panel-default">
-
-          <div class="panel-heading" ng-class="{'blacklisted':customer.blacklist}">
-            <h4 class="panel-title" data-toggle="collapse" data-target="#accordion{{customer.sroID}}">{{customer.sroID + ' '}}|{{' ' + customer.customerName + ' '}}|{{' ' + customer.customerPhoneNumber + ' '}}|{{' ' + customer.customerEmail}}</h4>
-            <button class="btn btn-sm btn-warning"type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
-            <button class="btn btn-sm btn-warning"type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
+          <!-- unite, gradient, fill, bordered, minimal, strech, simple -->
+          <div class="panel-heading bttn-unite bttn-md bttn-primary" data-toggle="collapse" data-target="#accordion{{customer.sroID}}" ng-class="{'blacklisted':customer.blacklist}">
+            <h4 class="panel-title" >{{customer.sroID + ' '}}|{{' ' + customer.customerName + ' '}}|{{' ' + customer.customerPhoneNumber + ' '}}|{{' ' + customer.customerEmail}}</h4>
           </div>
           <div class="panel-collapse collapse" id="accordion{{customer.sroID}}">
-            <!-- <div class="container"> -->
-              <!-- <div class="row"> -->
-                <!-- <div class="col-6"> -->
-                  Customer SRO: {{customer.sroID}}</br>
-                  Name: {{customer.customerName}}<br/>
-                  Phone: {{customer.customerPhoneNumber}}<br/>
-                  Date Created: {{customer.dateCreated}}<br/>
-                  Date Modified: {{customer.dateModified}}<br/>
-                <!-- </div> -->
-                <!-- <div class="col-6"> -->
-                  Device: {{customer.deviceType}}<br/>
-                  Serial Number: {{customer.serialNumber}}<br/>
-                  Problem: {{customer.probDescription}}<br/>
-                  Work: {{customer.workPerformed}}<br/>
-                  Blacklist Status: {{customer.blacklistStatus}}<br/>
-                <!-- </div> -->
-              <!-- </div> -->
-            <!-- </div> -->
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4">
+                  <b>Customer SRO: </b>{{customer.sroID}}</br>
+                  <b>Name: </b>{{customer.customerName}}<br/>
+                  <b>Phone: </b>{{customer.customerPhoneNumber}}<br/>
+                  <b>Date Created: </b>{{customer.dateCreated}}<br/>
+                  <b>Date Modified: </b>{{customer.dateModified}}<br/>
+                </div>
+                <div class="col-sm-4">
+                  <b>Device: </b>{{customer.deviceType}}<br/>
+                  <b>Serial Number: </b>{{customer.serialNumber}}<br/>
+                  <b>Problem Description: </b>{{customer.problemDescription}}<br/>
+                  <b>Work Performed: </b>{{customer.workPerformed}}<br/>
+                  <b>Blacklist Status: </b>{{customer.blacklistStatus}}<br/>
+                </div>
+                <div class="col-sm-4">
+                  <button class="btn btn-md"type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
+                  <button class="btn btn-md"type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    <!-- </div> -->
-
 
     <!-- <div class="tableWrapper"><br/>
       <table class="table table-striped table-hover">
