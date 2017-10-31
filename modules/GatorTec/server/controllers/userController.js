@@ -16,7 +16,7 @@ exports.getAllUsers = function(req, res){
       console.log(err);
       res.status(500).send('Internal Server Error');
     }
-    res.json(users);
+    
     res.status(200).send(users);
   });
 
