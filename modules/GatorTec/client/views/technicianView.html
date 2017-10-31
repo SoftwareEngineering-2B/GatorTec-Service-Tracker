@@ -23,10 +23,17 @@
     </div>
 
       <div class="panel-group" ng-repeat="customer in customers | filter:searchCustomer" style="margin-bottom: 0px">
-        <div class="panel panel-default">
+        <div class="panel">
           <!-- unite, gradient, fill, bordered, minimal, strech, simple -->
           <div class="panel-heading bttn-unite bttn-md bttn-primary" data-toggle="collapse" data-target="#accordion{{customer.sroID}}" ng-class="{'blacklisted':customer.blacklist}">
-            <h4 class="panel-title" >{{customer.sroID + ' '}}|{{' ' + customer.customerName + ' '}}|{{' ' + customer.customerPhoneNumber + ' '}}|{{' ' + customer.customerEmail}}</h4>
+            <h4 class="panel-title" >
+              <div class="row">
+                <div class="col-sm-3"><i class="fa fa-cog" aria-hidden="true"></i>{{' ' + customer.sroID}}</div>
+                <div class="col-sm-3"><i class="fa fa-user" aria-hidden="true"></i>{{' ' + customer.customerName}}</div>
+                <div class="col-sm-3"><i class="fa fa-mobile" aria-hidden="true"></i>{{' ' + customer.customerPhoneNumber}}</div>
+                <div class="col-sm-3"><i class="fa fa-envelope" aria-hidden="true"></i>{{' ' + customer.customerEmail}}</div>
+              </div>
+            </h4>
           </div>
           <div class="panel-collapse collapse" id="accordion{{customer.sroID}}">
             <div class="container">
@@ -46,8 +53,8 @@
                   <b>Blacklist Status: </b>{{customer.blacklistStatus}}<br/>
                 </div>
                 <div class="col-sm-4">
-                  <button class="btn btn-md"type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
-                  <button class="btn btn-md"type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
+                  <button class="btn btn-md" type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
+                  <button class="btn btn-md" type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
                 </div>
               </div>
             </div>
