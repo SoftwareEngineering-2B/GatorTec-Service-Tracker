@@ -35,7 +35,7 @@
 
     this.blacklistRepairOrder = function(sroID){
 
-      let body = sroID;
+      let body = { "sroID": sroID };
 
       return $http({
         method: 'PUT',
@@ -43,8 +43,10 @@
         data: body
       })
       .then(function successCallback(response){
+        console.log(response);
         return response;
       }, function errorCallback(response){
+        console.log(response);
         return response;
       });
 
@@ -52,7 +54,7 @@
 
     this.unblacklistRepairOrder = function(sroID){
 
-      let body = sroID;
+      let body = { "sroID": sroID };
 
       return $http({
         method: 'PUT',
@@ -60,8 +62,10 @@
         data: body
       })
       .then(function successCallback(response){
+        console.log(response);
         return response;
       }, function errorCallback(response){
+        console.log(response);
         return response;
       });
 
@@ -69,7 +73,7 @@
 
     this.deleteRepairOrder = function(sroID){
 
-      let body = sroID;
+      let body = { "sroID": sroID };
 
       return $http({
         method: 'DELETE',
@@ -77,8 +81,10 @@
         data: body
       })
       .then(function successCallback(response){
+        console.log(response);
         return response;
       }, function errorCallback(response){
+        console.log(response);
         return response;
       });
     };
@@ -120,15 +126,17 @@
 
     this.deleteUser = function(email){
 
-      let body = email;
+      let body = { "username": email };
 
       return $http({
         method: 'DELETE',
         url: 'http://localhost:8080/user/delete',
         data: body
       }).then(function successCallback(response){
+        console.log(response);
         return response;
       }, function errorCallback(response){
+        console.log(response);
         return response;
       });
     };
