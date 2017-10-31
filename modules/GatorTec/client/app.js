@@ -31,17 +31,17 @@
         .state('admin.customers', {
           url: '/customers',
           templateUrl: './views/adminView.customers.html',
-          controller: 'adminController'
+          controller: 'adminControllerCustomers'
         })
         .state('admin.users', {
           url: '/users',
           templateUrl: './views/adminView.users.html',
-          controller: 'adminController'
+          controller: 'adminControllerUsers'
         })
         .state('admin.database', {
           url: '/database',
           templateUrl: './views/adminView.database.html',
-          controller: 'adminController'
+          controller: 'adminControllerDatabase'
         });
 
 
