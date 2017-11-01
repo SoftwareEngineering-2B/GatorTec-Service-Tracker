@@ -50,7 +50,6 @@
 
 body {
   padding-top: 65px;
-  background-color: #4d4d4d;
 }
 
 .navbar{
@@ -99,4 +98,8 @@ border-radius: 7px;
 
 .blacklisted {
   background-color: #2d2d2d !important;
+}
+
+.hiddenRow {
+    padding: 0 !important;
 }
