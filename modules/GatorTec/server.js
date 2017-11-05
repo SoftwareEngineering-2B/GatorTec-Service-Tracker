@@ -1,19 +1,34 @@
-const bodyParser = require('body-parser');
+const db = require('./server/config/db.js');
+const port = process.env.PORT || 8080;
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const mongoStore = require('connect-mongo')(expressSession);
+
+// App Configuration
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static('client'));
+app.use(cookieParser());
+app.use(expressSession({
+  saveUninitialized: true,
+  resave: false,
+  store: new mongoStore({ mongooseConnection: db }),
+  secret: 'Software-Engineering-2B_GatorTec-Service-Tracker'
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./server/config/passport.js')(passport);
+
 // Routing files
 const repairOrderRouter = require('./server/routes/repairOrderRoutes.js');
 const userRouter = require('./server/routes/userRoutes.js');
-
-// Connects to the mongoDB database using the mongoDB URI
-mongoose.connect('mongodb://meanjs:meanjs@ds139844.mlab.com:39844/meanjs-swe', { useMongoClient: true }, function(){
-    console.log('mongodb connected');
-});
-
-app.use(bodyParser.json());
-app.use(express.static('client'));
 
 // Requests made to modify specific models are sent to the corresponding router
 app.use('/repairOrder', repairOrderRouter);
@@ -21,7 +36,7 @@ app.use('/user', userRouter);
 
 // Serves the homepage index.html
 app.get('/', function(req, res){
-  res.sendFile('./client/views/loginPage.html', { root: __dirname });
+  res.sendFile('./client/index.html', { root: __dirname });
 });
 
 // Redirects all unrecognized paths to the root path a.k.a the homepage
@@ -29,7 +44,7 @@ app.get('/*', function(req, res){
   return res.redirect('/');
 });
 
-// Sets port 8080 as the port which the server listens to requests from
-app.listen(8080, function(){
-  console.log('Server listening on port 8080');
+// Sets the port which the server listens to requests from
+app.listen(port, function(){
+  console.log('Server listening on port ' + port);
 });

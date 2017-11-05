@@ -1,9 +1,14 @@
-var app = angular.module('myApp', []);
-app.controller('loginController', function($scope) {
-  $scope.email = "";
-  $scope.phone = "";
-  $scope.login = function(){
-    alert($scope.email);
-    alert($scope.phone);
-  }
-});
+(function(){
+  'use strict';
+
+  angular.module('login', [])
+  .controller('loginController', ['$scope', 'httpAPI', function($scope, httpAPI) {
+    $scope.field1 = "";
+    $scope.field2 = "";
+
+    $scope.login = function(){
+      httpAPI.login($scope.field1, $scope.field2);
+    };
+
+  }]);
+})();
