@@ -1,35 +1,18 @@
 /*~~~~~~~~~~~~~~~~~~CustomerView CSS~~~~~~~~~~~~~~~~~~*/
+/* BODY */
 .customer_body {
   padding-top: 65px;
 }
 
-.text {
-color: black;
-}
-
-.alignment {
-text-align: center;
-align-self: auto;
-}
-
+/* NAV BAR STYLING */
 .nav-bottom-border {
 border-bottom: solid;
 border-color: rgba(211, 211, 211, 0.71);
 }
 
-.date {
-font-weight: 550;
-}
-
-.nav-header {
+.nav-Title {
 font-size: 25px;
 padding: 10px 0px 0px 10px;
-}
-
-.center-bar {
-text-align: center;
-padding: 17px 0px 10px 0px;
-font-size: 14px;
 }
 
 .nav-space {
@@ -38,26 +21,86 @@ padding: 19px 10px 10px 10px;
 font-size: 14px;
 }
 
-.hori-device-container {
-margin: auto;
-padding: 0;
-border-radius: 7px;
-width: auto;
-position: relative;
+.center-bar {
+text-align: center;
+padding: 17px 0px 10px 0px;
+font-size: 14px;
 }
 
+/* DEVICE SELECTION BAR */
 .horizontal_table {
 border-collapse: separate;
 border-spacing: 5px 0;
 margin-top: -20px;
+padding: 20px;
 }
 
-.div_hori_table {
-display: block;
-height: 300px;
-margin-bottom: -30px;
+/* DEVICE TABLE DATA */
+.device_td:hover {
+border-radius: 10px;
+box-shadow: 0 0 10px grey;
 }
 
+.device_td:active {
+box-shadow: inset 0 0 10px grey;
+background-color: lightgrey;
+}
+
+/* DEVICE LINKS */
+.device_a {
+margin: 0;
+padding: 20px;
+border: 0;
+font-size: 110%;
+font: inherit;
+vertical-align: baseline;
+text-decoration: none;
+text-align: center;
+}
+
+.device_a:hover {
+text-decoration: none;
+}
+
+.device_a:active {
+text-decoration: none;
+}
+
+.device_a:visited {
+text-decoration: none;
+}
+
+.device_a:link {
+text-decoration: none;
+}
+
+/* DEVICE ICONS */
+.div-i {
+text-align: center;
+padding: 0 10px;
+}
+
+.device_i {
+margin: 0 0 -20px 0;
+text-align: center;
+align-self: auto;
+}
+
+/* DEVICE SERIAL # INFO */
+.serial-font {
+font-size: 15px;
+}
+
+.serial-dots {
+font-size: 11px;
+padding-bottom: 10px;
+}
+
+#div1, #div2 {
+display: inline;
+}
+
+/* ARROW BUTTONS FOR DEVICE SELECTION BAR */
 .arrows {
 border: none;
 background: none;
@@ -73,34 +116,25 @@ color:#6797be
 color:#013E6E
 }
 
+/* DEVICE REPAIR INFORMATION */
 .repair-container {
+text-align: center;
 width: 1000px;
 height: auto;
 margin: 0 auto;
 padding: 10px 10px 30px 10px;
 position: relative;
-/*
-border-style: solid;
-border-color: grey;
-border-radius: 7px;
-*/
 border-radius: 7px;
 box-shadow: 0 0 10px grey;
 }
 
-.serial-font {
-font-size: 15px;
+.sro-id {
+font-size: 18px;
+padding-top: 10px;
+padding-bottom: 20px;
 }
 
-.serial-dots {
-font-size: 11px;
-padding-bottom: 10px;
-}
-
-#div1, #div2 {
-display: inline;
-}
-
+/* PROGRESS BAR STYLING */
 #progressBar1, #progressBar2, #progressBar3 {
 display: inline;
 }
@@ -117,91 +151,25 @@ position: relative;
 width: 200px;
 }
 
-.div_progress_table {
-display: block;
-height: 100px;
-margin: -20px 0 -10px 0;
-}
-
-.progress-container {
-margin: 10px auto 0 auto;
-padding: 0;
-width: auto;
-position: relative;
-overflow: hidden;
-}
-
 .progress_words {
   text-align: center;
 }
 
-.status_notes {
-font-size: 18px;
-}
-
-i {
-margin: 0 0 -20px 0;
-text-align: center;
-align-self: auto;
-}
-
-.div-i {
-text-align: center;
-padding: 0 10px;
-}
-
-.device_td:hover {
-border-radius: 10px;
-box-shadow: 0 0 10px grey;
-}
-
-.device_td:active {
-box-shadow: inset 0 0 10px grey;
-background-color: lightgrey;
-}
-
-a {
-margin: 0;
-border: 0;
-font-size: 110%;
-font: inherit;
-vertical-align: baseline;
-text-decoration: none;
-text-align: center;
-}
-
-table, a {
-padding: 20px;
-}
-
-a:hover {
-text-decoration: none;
-}
-
-a:active {
-text-decoration: none;
-}
-
-a:visited {
-text-decoration: none;
-}
-
-a:link {
-text-decoration: none;
-}
-
-.sro-id {
-font-size: 18px;
-padding-top: 10px;
-padding-bottom: 20px;
+/* STATUS NOTES STYLING */
+.total_notes_div {
+padding: 20px 0 0 87px;
+width: 800px;
 }
 
 .notes-div {
 padding: 7px 0 0 7px;
 }
 
-.total_notes_div {
-padding: 20px 0 0 87px;
-width: 800px;
+.date {
+font-weight: 550;
+}
+
+.status_notes {
+font-size: 18px;
 }
 /*~~~~~~~~~~~~~~~~~~CustomerView CSS~~~~~~~~~~~~~~~~~~*/
