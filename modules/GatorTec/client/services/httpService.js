@@ -4,78 +4,88 @@
   angular.module('httpService', [])
   .service('httpAPI', ['$http', '$state', function($http, $state) {
 
-    this.getAllRepairOrders = function(){
-      $http({
+     this.getAllRepairOrders = function(){
+      return $http({
         method: 'GET',
         url: 'http://localhost:8080/repairOrder/getAllRepairOrders'
       })
       .then(function successCallback(response){
-        console.log(response);
+        return response.data;
       }, function errorCallback(response){
-        console.log(response);
+        return response;
       });
     };
 
     this.getAllRepairOrdersByEmail = function(email){
+
       let body = email;
-      $http({
+
+      return $http({
         method: 'POST',
         url: 'http://localhost:8080/repairOrder/getAllRepairOrdersByEmail',
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
+        return response;
       }, function errorCallback(response){
-        console.log(response);
+        return response;
       });
     };
 
 
     this.blacklistRepairOrder = function(sroID){
-      let body = sroID;
-      $http({
+
+      let body = { "sroID": sroID };
+
+      return $http({
         method: 'PUT',
         url: 'http://localhost:8080/repairOrder/blacklist',
         data: body
       })
       .then(function successCallback(response){
         console.log(response);
+        return response;
       }, function errorCallback(response){
         console.log(response);
+        return response;
       });
 
     };
 
     this.unblacklistRepairOrder = function(sroID){
 
-      let body = sroID;
+      let body = { "sroID": sroID };
 
-      $http({
+      return $http({
         method: 'PUT',
         url: 'http://localhost:8080/repairOrder/unblacklist',
         data: body
       })
       .then(function successCallback(response){
         console.log(response);
+        return response;
       }, function errorCallback(response){
         console.log(response);
+        return response;
       });
 
     };
 
     this.deleteRepairOrder = function(sroID){
 
-      let body = sroID;
+      let body = { "sroID": sroID };
 
-      $http({
+      return $http({
         method: 'DELETE',
         url: 'http://localhost:8080/repairOrder/delete',
         data: body
       })
       .then(function successCallback(response){
         console.log(response);
+        return response;
       }, function errorCallback(response){
         console.log(response);
+        return response;
       });
     };
 
@@ -89,43 +99,45 @@
         "userRole": userRole
       }
 
-      $http({
+      return $http({
         method: 'POST',
         url: 'http://localhost:8080/user/add',
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
+        return response;
       }, function errorCallback(response){
-        console.log(response);
+        return response;
       });
     };
 
     this.getAllUsers = function(){
 
-      $http({
+      return $http({
         method: 'GET',
         url: 'http://localhost:8080/user/getAllUsers'
       })
       .then(function successCallback(response){
-        console.log(response);
+        return response.data;
       }, function errorCallback(response){
-        console.log(response);
+        return response;
       });
     };
 
-    this.deleteUser = function(sroID){
+    this.deleteUser = function(email){
 
-      let body = sroID;
+      let body = { "username": email };
 
-      $http({
+      return $http({
         method: 'DELETE',
         url: 'http://localhost:8080/user/delete',
         data: body
       }).then(function successCallback(response){
         console.log(response);
+        return response;
       }, function errorCallback(response){
         console.log(response);
+        return response;
       });
     };
 
@@ -151,9 +163,8 @@
         else if(response.data == 'admin'){
           $state.go('admin.users');
         }
-        console.log(response);
       }, function errorCallback(response){
-        console.log(response);
+        return response;
       });
 
     };

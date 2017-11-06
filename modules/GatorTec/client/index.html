@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="./css/adminView.css">
     <link rel="stylesheet" href="./css/main.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.min.css" />
 
     <script src="./controllers/loginController.js"></script>
     <script src="./controllers/customerController.js"></script>
     <script src="./controllers/technicianController.js"></script>
-    <script src="./controllers/adminController.js"></script>
+    <script src="./controllers/adminControllers.js"></script>
 
     <script src="./services/httpService.js"></script>
 
@@ -29,6 +30,8 @@
   </head>
 
   <body ng-app="app">
-    <div ui-view></div>
+    <div class="container">
+      <div ui-view></div>
+    </div>
   </body>
 </html>
