@@ -109,8 +109,11 @@
 
             <div class="notes-div">
               <h3 class="date">{{currentDevice.dateCreated}}:</h3>
-              <div class="status_notes">
-                Current Status: {{currentDevice.status}}
+              <div ng-show="currentDevice.status != 'Ready'" class="status_notes">
+                Our technicians are working on your product. We'll notify you when the repair has been completed.
+              </div>
+              <div ng-show="currentDevice.status == 'Ready'" class="status_notes">
+                Your device is ready for pick-up.
               </div>
             </div>
 
