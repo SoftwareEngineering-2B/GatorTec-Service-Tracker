@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('app', ['login', 'customer', 'technician', 'admin', 'httpService', 'ui.router'])
-    .config(function($stateProvider, $urlRouterProvider){
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
+      $locationProvider.html5Mode({ enabled: true, requireBase: false });
       $urlRouterProvider.otherwise('/login');
-
 
       $stateProvider
         .state('login', {
