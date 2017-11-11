@@ -16,10 +16,11 @@ app.use(bodyParser.json());
 app.use(express.static('client'));
 app.use(cookieParser());
 app.use(expressSession({
-  saveUninitialized: true,
-  resave: false,
+  // saveUninitialized: true,
+  // resave: false,
   store: new mongoStore({ mongooseConnection: db }),
-  secret: 'Software-Engineering-2B_GatorTec-Service-Tracker'
+  secret: 'Software-Engineering-2B_GatorTec-Service-Tracker',
+  name: 'session'
 }));
 app.use(passport.initialize());
 app.use(passport.session());
