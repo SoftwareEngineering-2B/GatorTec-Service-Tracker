@@ -67,7 +67,7 @@ exports.getAllRepairOrders = function(req, res){
 // Get all repairOrders that are not blacklisted by username
 exports.getAllRepairOrdersByEmail = function(req, res){
 
-  let username = req.body.username;
+  let username = req['user'].username;
 
   repairOrder.find({ customerEmail: username, blacklist: false }, function(err, repairOrders){
 
