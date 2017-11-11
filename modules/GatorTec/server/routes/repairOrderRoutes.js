@@ -10,7 +10,7 @@ router.route('/getAllRepairOrders')
   .get(repairOrder.getAllRepairOrders);
 
 router.route('/getAllRepairOrdersByEmail')
-  .post(repairOrder.getAllRepairOrdersByEmail);
+  .get(repairOrder.getAllRepairOrdersByEmail);
 
   router.route('/blacklist')
   .put(repairOrder.blacklist);
