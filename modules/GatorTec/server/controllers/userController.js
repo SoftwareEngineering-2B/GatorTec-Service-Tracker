@@ -16,7 +16,7 @@ exports.getAllUsers = function(req, res){
       console.log(err);
       res.status(500).send('Internal Server Error');
     }
-    
+
     res.status(200).send(users);
   });
 
@@ -41,7 +41,6 @@ exports.delete = function(req, res){
 
 exports.login = function(req, res){
   let userRole = req['user'].userRole;
-  console.log(userRole);
   res.status(200).send(userRole);
 };
 
