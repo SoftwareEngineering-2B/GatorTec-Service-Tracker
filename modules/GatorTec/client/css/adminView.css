@@ -52,8 +52,9 @@ body {
   padding-top: 65px;
 }
 
+
 .navbar{
-  background-color: #333333;
+  background-color: white;
   color: #4C88BE;
 }
 
@@ -67,6 +68,10 @@ font-size: 25px;
 padding: 10px 0px 0px 10px;
 }
 
+.nav-bottom-border {
+border-bottom: solid;
+border-color: rgba(211, 211, 211, 0.71);
+}
 .center-bar {
 text-align: center;
 padding: 17px 0px 10px 0px;
