@@ -35,10 +35,57 @@
         </div>
       </div>
       <div class="col-sm-12">
-        <button class="btn btn-sm btn-primary col-sm-12" type="button" name="button" ng-click="add('renzo', 'password', 'admin')">
+        <button class="btn btn-sm btn-primary col-sm-12" type="button" name="button" data-toggle="modal" data-target="#addUser">
           <i class="fa fa-user-plus" aria-hidden="true"></i>Add User</button>
+
+          <div class="modal fade" id="addUser" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Add a User</h4>
+                </div>
+                <div class="modal-body">
+
+                  <!--form-->
+                  <form>
+                    <div class="form-group">
+                      <label for="newUserFirstName">First Name</label>
+                      <input type="text" class="form-control" id="newUserFirstName" placeholder="John">
+                      <label for="newUserLastName">Last Name</label>
+                      <input type="text" class="form-control" id="newUserLastName" placeholder="Doe">
+                    </div>
+                    <div class="form-group">
+                      <label for="newUserEmail">Email address</label>
+                      <input type="email" class="form-control" id="newUserEmail" placeholder="user@gatorTec.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="newUserRole">User Role</label>
+                      <select class="form-control" id="newUserRole">
+                        <option>Admin</option>
+                        <option>Technician</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="newUserPassword">Password</label>
+                        <input type="password" class="form-control" id="newUserPassword" placeholder="Password">
+                    </div>
+                  </form>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="add(newUserEmail, 'password', 'admin')">Add User</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
       </div>
     </div>
+
 
 
 <div class="tableWrapper"><br/>
