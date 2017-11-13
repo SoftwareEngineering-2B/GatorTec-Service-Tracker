@@ -16,17 +16,14 @@
       });
     };
 
-    this.getAllRepairOrdersByEmail = function(email){
-
-      let body = email;
+    this.getAllRepairOrdersByEmail = function(){
 
       return $http({
-        method: 'POST',
+        method: 'GET',
         url: 'http://localhost:8080/repairOrder/getAllRepairOrdersByEmail',
-        data: body
       })
       .then(function successCallback(response){
-        return response;
+        return response.data;
       }, function errorCallback(response){
         return response;
       });
