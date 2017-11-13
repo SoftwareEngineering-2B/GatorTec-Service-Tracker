@@ -48,12 +48,12 @@
   }
 }
 
-body {
+.technician-body {
   padding-top: 65px;
   background-color: #4d4d4d;
 }
 
-.navbar{
+.tech-navbar{
   background-color: #333333;
   color: #4C88BE;
 }
@@ -63,7 +63,7 @@ border-bottom: solid;
 border-color: rgba(211, 211, 211, 0.71);
 }
 
-.nav-header {
+.tech-nav-header {
 font-size: 25px;
 padding: 10px 0px 0px 10px;
 }

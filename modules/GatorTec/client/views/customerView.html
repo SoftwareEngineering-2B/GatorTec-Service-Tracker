@@ -1,126 +1,129 @@
-<nav class="navbar nav-bottom-border navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header nav-Title">GatorTec Service Tracker</div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="nav-space">Hello, {{currentDevice.customerName}}</li>
-        <li class="center-bar">|</li>
-        <li><a>Sign out</a></li>
-      </ul>
+<div ng-controller="customerController">
+  <nav class="navbar nav-bottom-border navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header nav-Title">GatorTec Service Tracker</div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-space">Hello, {{currentDevice.customerName}}</li>
+          <li class="center-bar">|</li>
+          <li><a>Sign out</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="container">
+  <div class="container">
 
-    <!-- HORIZONTAL DEVICE BAR -->
-    <center>
-        <div class="row">
-            <h3>Your Devices:</h3>
-            <center>
-                <table class="horizontal_table">
-                    <tr>
-                        <td id="left"></td>
-                        <td ng-repeat="listing in listings" class="device_td" ng-click="switchDevice(listing)">
-                            <a href="#" class="device_a">
-                                <div class="div-i">
-                                    <!-- iPhone --><i ng-show="listing.device.description.indexOf('iPhone')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:85px;" class="device_i fa fontawesome-icon fa-mobile circle-no"></i>
-                                    <!-- Mac --><i ng-show="listing.device.description == 'Mac'" style="background-color:transparent;border-color:transparent;height:93px;width: 110px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-desktop circle-no"></i>
-                                    <!-- iPad & iPod --><i ng-show="listing.device.description == 'iPad' || listing.device.description == 'iPod'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-tablet circle-no"></i>
-                                    <!-- Apple Watch --><i ng-show="listing.device.description == 'Apple Watch'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-clock-o circle-no"></i>
-                                    <!-- Beats & More --><i ng-show="listing.device.description == 'Beats'" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-headphones circle-no"></i>
-                                </div>
-                                <h4>{{listing.deviceType}}</h4>
-                                <div>
-                                    <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{listing.serialNumber.substr(7, 11)}}</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td id="right"></td>
-                    </tr>
-                </table>
-            </center>
-
-            <!-- LEFT/RIGHT ARROWS -->
-            <!--
-            <div class="row">
-                <a href="#left" class="arrows">
-                <span class="glyphicon glyphicon-menu-left arrows" aria-hidden="true"></span>
-                </a>
-                <a href="#right" class="arrows">
-                <span class="glyphicon glyphicon-menu-right arrows" aria-hidden="true"></span>
-                </a>
-            </div>
-            -->
-
-        </div>
-    </center>
-  
-
-  <div class="row">       
-    <div class="repair-container">
-
-      <h1>Repair Status</h1>
-      <div class="sro-id">SRO ID: {{currentDevice.sroID}}</div>
-
+      <!-- HORIZONTAL DEVICE BAR -->
       <center>
-        <table class="progress_table">
-          <tr>
-            <td>
-              <!-- PROGRESS BAR 1 -->
-              <div class="progress progress_bar">
-                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
-                aria-valuenow="{{progress1}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress1}}%"></div>
-              </div>
-            </td>
-            <td>
-              <!-- PROGRESS BAR 2 -->
-              <div class="progress progress_bar">
-                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
-                aria-valuenow="{{progress2}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress2}}%"></div>
-              </div>
-            </td>
-            <td>
-              <!-- PROGRESS BAR 3 -->
-              <div class="progress progress_bar">
-                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
-                aria-valuenow="{{progress3}}" aria-valuemin="0" aria-valuemax="100"style="width: {{progress3}}%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr class="progress_words">
-              <td>
-                Product received in store
-              </td>
-              <td>
-                Repair in progress
-              </td>
-              <td>
-                Product pickup pending
-              </td>
-            </tr>
-        </table>
-      </center>
+          <div class="row">
+              <h3>Your Devices:</h3>
+              <center>
+                  <table class="horizontal_table">
+                      <tr>
+                          <td id="left"></td>
+                          <td ng-repeat="device in repairOrders" class="device_td" ng-click="switchDevice(device)">
+                              <a href="#" class="device_a">
+                                  <div class="div-i">
+                                      <!-- iPhone --><i ng-show="device.deviceType.indexOf('iPhone')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:85px;" class="device_i fa fontawesome-icon fa-mobile circle-no"></i>
+                                      <!-- Mac --><i ng-show="device.deviceType.indexOf('Mac')!=-1" style="background-color:transparent;border-color:transparent;height:93px;width: 110px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-desktop circle-no"></i>
+                                      <!-- iPad & iPod --><i ng-show="device.deviceType.indexOf('iPad')!=-1 || device.deviceType.indexOf('iPod')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-tablet circle-no"></i>
+                                      <!-- Apple Watch --><i ng-show="device.deviceType.indexOf('Apple Watch')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-clock-o circle-no"></i>
+                                      <!-- Beats & More --><i ng-show="device.deviceType.indexOf('Beats')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-headphones circle-no"></i>
+                                  </div>
+                                  <h4>{{device.deviceType}}</h4>
+                                  <div>
+                                      <div id="div1" class="serial-dots">&#9679&#9679&#9679&#9679&#9679&#9679&#9679</div><div id="div2" class="serial-font">{{device.serialNumber.substr(7, 11)}}</div>
+                                  </div>
+                              </a>
+                          </td>
+                          <td id="right"></td>
+                      </tr>
+                  </table>
+              </center>
 
-      <center>
-        <div class="total_notes_div">
-          <div align="left">
-            <h2>Your repair is in progress.</h2>
-
-            <div class="notes-div">
-              <h3 class="date">{{currentDevice.dateCreated}}:</h3>
-              <div ng-show="currentDevice.status != 'Ready'" class="status_notes">
-                Our technicians are working on your product. We'll notify you when the repair has been completed.
+              <!-- LEFT/RIGHT ARROWS -->
+              <!--
+              <div class="row">
+                  <a href="#left" class="arrows">
+                  <span class="glyphicon glyphicon-menu-left arrows" aria-hidden="true"></span>
+                  </a>
+                  <a href="#right" class="arrows">
+                  <span class="glyphicon glyphicon-menu-right arrows" aria-hidden="true"></span>
+                  </a>
               </div>
-              <div ng-show="currentDevice.status == 'Ready'" class="status_notes">
-                Your device is ready for pick-up.
-              </div>
-            </div>
+              -->
 
           </div>
-        </div>
       </center>
 
+      <!--<div class="row one-device" ng-show="repairOrders.length == 1"></div>-->
+
+    <div class="row">       
+      <div class="repair-container">
+
+        <h1>Repair Status</h1>
+        <div class="sro-id">SRO ID: {{currentDevice.sroID}}</div>
+
+        <center>
+          <table class="progress_table">
+            <tr>
+              <td>
+                <!-- PROGRESS BAR 1 -->
+                <div class="progress progress_bar">
+                  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                  aria-valuenow="{{progress1}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress1}}%"></div>
+                </div>
+              </td>
+              <td>
+                <!-- PROGRESS BAR 2 -->
+                <div class="progress progress_bar">
+                  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                  aria-valuenow="{{progress2}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress2}}%"></div>
+                </div>
+              </td>
+              <td>
+                <!-- PROGRESS BAR 3 -->
+                <div class="progress progress_bar">
+                  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                  aria-valuenow="{{progress3}}" aria-valuemin="0" aria-valuemax="100"style="width: {{progress3}}%"></div>
+                </div>
+              </td>
+            </tr>
+            <tr class="progress_words">
+                <td>
+                  Product received in store
+                </td>
+                <td>
+                  Repair in progress
+                </td>
+                <td>
+                  Product pickup pending
+                </td>
+              </tr>
+          </table>
+        </center>
+
+        <center>
+          <div class="total_notes_div">
+            <div align="left">
+              <h2>Your repair is in progress.</h2>
+
+              <div class="notes-div">
+                <h3 class="date">{{currentDevice.dateCreated}}:</h3>
+                <div ng-show="currentDevice.status != 'Ready'" class="status_notes">
+                  Our technicians are working on your product. We'll notify you when the repair has been completed.
+                </div>
+                <div ng-show="currentDevice.status == 'Ready'" class="status_notes">
+                  Your device is ready for pick-up.
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </center>
+
+      </div>
     </div>
   </div>
 </div>

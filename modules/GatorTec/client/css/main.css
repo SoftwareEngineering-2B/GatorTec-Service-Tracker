@@ -116,6 +116,11 @@ color:#6797be
 color:#013E6E
 }
 
+/* NO DEVICE SPACING */
+.one-device {
+  margin: 50px;
+}
+
 /* DEVICE REPAIR INFORMATION */
 .repair-container {
 text-align: center;
