@@ -87,14 +87,4 @@ passport.validPassword = function(password, userPassword){
   return bcrypt.compareSync(password, userPassword);
 };
 
-let authenticationMiddleware = function(){
-  return function(req, res, next){
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect('/');
-  };
-};
-
-
 module.exports = passportLocal;
