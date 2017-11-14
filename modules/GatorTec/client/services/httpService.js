@@ -164,5 +164,19 @@
 
     };
 
+    this.logout = function(){
+      return $http({
+        method: 'GET',
+        url: 'http://localhost:8080/user/logout',
+      })
+      .then(function successCallback(response){
+        console.log(response);
+        return response;
+      }, function errorCallback(response){
+        console.log(response);
+        return response;
+      });
+    };
+
   }]);
 })();
