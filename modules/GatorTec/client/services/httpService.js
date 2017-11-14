@@ -37,13 +37,12 @@
       return $http({
         method: 'PUT',
         url: 'http://localhost:8080/repairOrder/blacklist',
+        headers: { "Content-Type":"application/json" },
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
         return response;
       }, function errorCallback(response){
-        console.log(response);
         return response;
       });
 
@@ -56,13 +55,12 @@
       return $http({
         method: 'PUT',
         url: 'http://localhost:8080/repairOrder/unblacklist',
+        headers: { "Content-Type":"application/json" },
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
         return response;
       }, function errorCallback(response){
-        console.log(response);
         return response;
       });
 
@@ -75,13 +73,12 @@
       return $http({
         method: 'DELETE',
         url: 'http://localhost:8080/repairOrder/delete',
+        headers: { "Content-Type":"application/json" },
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
         return response;
       }, function errorCallback(response){
-        console.log(response);
         return response;
       });
     };
@@ -99,6 +96,7 @@
       return $http({
         method: 'POST',
         url: 'http://localhost:8080/user/add',
+        headers: { "Content-Type":"application/json" },
         data: body
       })
       .then(function successCallback(response){
@@ -128,12 +126,11 @@
       return $http({
         method: 'DELETE',
         url: 'http://localhost:8080/user/delete',
+        headers: { "Content-Type":"application/json" },
         data: body
       }).then(function successCallback(response){
-        console.log(response);
         return response;
       }, function errorCallback(response){
-        console.log(response);
         return response;
       });
     };
@@ -148,6 +145,7 @@
       $http({
         method: 'POST',
         url: 'http://localhost:8080/user/login',
+        headers: { "Content-Type":"application/json" },
         data: body
       })
       .then(function successCallback(response){
