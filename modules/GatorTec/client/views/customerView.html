@@ -1,14 +1,12 @@
-<div ng-controller="customerController">
-  <nav class="navbar nav-bottom-border navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header nav-Title">GatorTec Service Tracker</div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-space">Hello, {{currentDevice.customerName}}</li>
-          <li class="center-bar">|</li>
-          <li><a>Sign out</a></li>
-        </ul>
-      </div>
+<nav class="navbar nav-bottom-border navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header nav-Title">GatorTec Service Tracker</div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-space">Hello, {{currentDevice.customerName}}</li>
+        <li class="center-bar">|</li>
+        <li><a ng-click="logout()">Sign out</a></li>
+      </ul>
     </div>
   </nav>
 
@@ -53,11 +51,12 @@
                   </a>
               </div>
               -->
+        </div>
+    </center>
 
-          </div>
-      </center>
 
-      <!--<div class="row one-device" ng-show="repairOrders.length == 1"></div>-->
+  <div class="row">
+    <div class="repair-container">
 
     <div class="row">       
       <div class="repair-container">
@@ -126,4 +125,3 @@
       </div>
     </div>
   </div>
-</div>
