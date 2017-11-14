@@ -9,7 +9,14 @@
       $scope.repairOrders.sort(function(a,b){
         return a.sroID - b.sroID;
       });
+      console.log($scope.repairOrders);
     });
+
+    $scope.logout = function(){
+      httpAPI.logout().then(function(response){
+        console.log(response);
+      })
+    };
 
   }]);
 })();
