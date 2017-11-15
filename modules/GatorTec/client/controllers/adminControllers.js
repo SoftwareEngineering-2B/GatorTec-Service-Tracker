@@ -53,12 +53,11 @@
     });
 
     $scope.add = function(username, userPassword, userRole){
-      //httpAPI.addUser(username, userPassword, userRole).then(function(repsonse){
+      httpAPI.addUser(username, userPassword, userRole).then(function(repsonse){
 
-          //$scope.employees.splice(0,0,username);
+          $scope.employees.push(0,0,username);
 
-
-      //});
+        });
 
     };
 
