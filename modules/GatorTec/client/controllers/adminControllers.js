@@ -52,8 +52,18 @@
       $scope.employees = response;
     });
 
-    $scope.add = function(username, userPassword, userRole){
-      // httpAPI.addUser(username, userPassword, userRole);
+    $scope.add = function(employeeName, username, userPassword, userRole){
+      httpAPI.addUser(employeeName, username, userPassword, userRole).then(function(repsonse){
+        var newUser = {
+          employeeName: $scope.newUserFirstName + $scope.newUserLastName,
+          userRole: $scope.newUserRole,
+          username: $scope.newUserEmail,
+          userPassword: $scope.userPassword
+        }
+          $scope.employees.push(newUser);
+
+        });
+
     };
 
     $scope.delete = function(email){
