@@ -91,9 +91,10 @@
 
 ///////////////////////////// USERS ////////////////////////////////
 
-    this.addUser = function(username, userPassword, userRole){
+    this.addUser = function(employeeName, username, userPassword, userRole){
 
       let body = {
+        "employeeName": employeeName,
         "username": username,
         "userPassword": userPassword,
         "userRole": userRole

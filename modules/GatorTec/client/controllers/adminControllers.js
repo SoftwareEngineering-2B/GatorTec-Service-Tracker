@@ -52,10 +52,15 @@
       $scope.employees = response;
     });
 
-    $scope.add = function(username, userPassword, userRole){
-      httpAPI.addUser(username, userPassword, userRole).then(function(repsonse){
-
-          $scope.employees.push(0,0,username);
+    $scope.add = function(employeeName, username, userPassword, userRole){
+      httpAPI.addUser(employeeName, username, userPassword, userRole).then(function(repsonse){
+        var newUser = {
+          employeeName: $scope.newUserFirstName + $scope.newUserLastName,
+          userRole: $scope.newUserRole,
+          username: $scope.newUserEmail,
+          userPassword: $scope.userPassword
+        }
+          $scope.employees.push(newUser);
 
         });
 
