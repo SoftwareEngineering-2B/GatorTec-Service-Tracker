@@ -4,12 +4,11 @@
       <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
 
 
-      <div id="navbar" class="navbar-collapse collapse">
+      <div id="admin-navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right text">
           <li><a>Sign Out</a></li>
         </ul>
       </div>
-
     </div>
   </nav>
 
@@ -31,19 +30,14 @@
                       <!-- SIDEBAR USER TITLE -->
                       <div class="profile-usertitle">
                           <div class="profile-usertitle-name">
-                              Marcus Doe
+                              {{user.username}}
                           </div>
                           <div class="profile-usertitle-job">
-                              Developer
+                              {{user.userRole}}
                           </div>
                       </div>
                       <!-- END SIDEBAR USER TITLE -->
-                      <!-- SIDEBAR BUTTONS -->
-                      <div class="profile-userbuttons">
-                          <button type="button" class="btn btn-success btn-sm">Follow</button>
-                          <button type="button" class="btn btn-danger btn-sm">Message</button>
-                      </div>
-                      <!-- END SIDEBAR BUTTONS -->
+
                       <!-- SIDEBAR MENU -->
                       <div class="profile-usermenu">
                           <ul class="nav">
@@ -51,12 +45,11 @@
                                   <a ui-sref="admin.customers">Customers</a>
                               </li>
                               <li>
-                                  <a ui-sref="admin.database">Database</a>
-                              </li>
-                              <li>
                                   <a ui-sref="admin.users">Users</a>
                               </li>
-
+                              <li>
+                                  <a ui-sref="admin.database">Database</a>
+                              </li>
                           </ul>
                       </div>
                       <!-- END MENU -->

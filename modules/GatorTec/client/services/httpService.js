@@ -157,7 +157,7 @@
           $state.go('technician');
         }
         else if(response.data == 'Admin'){
-          $state.go('admin.users');
+          $state.go('admin.customers');
         }
       }, function errorCallback(response){
         return response;

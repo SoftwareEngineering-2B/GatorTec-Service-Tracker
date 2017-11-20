@@ -54,8 +54,9 @@ body {
 }
 
 .admin-navbar{
-  background-color: #333333;
+  background-color: white;
   color: #4C88BE;
+  text-align: center;
 }
 
 .nav-bottom-border {

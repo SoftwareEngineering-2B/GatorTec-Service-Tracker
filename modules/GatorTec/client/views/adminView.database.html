@@ -2,17 +2,8 @@
     <div class="container-fluid">
 
       <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
-      <div class="navbar-header nav-header dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Database
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a ui-sref="admin.users">Users</a></li>
-          <li><a ui-sref="admin.customers">Customers</a></li>
-        </ul>
-      </div>
 
-      <div id="navbar" class="navbar-collapse collapse">
+      <div id="admin-navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right text">
           <li class="nav-space">Hello, {{listings[0].customerName}}</li>
           <li class="center-bar">|</li>
@@ -44,24 +35,19 @@
                             </div>
                         </div>
                         <!-- END SIDEBAR USER TITLE -->
-                        <!-- SIDEBAR BUTTONS -->
-                        <div class="profile-userbuttons">
-                            <button type="button" class="btn btn-success btn-sm">Follow</button>
-                            <button type="button" class="btn btn-danger btn-sm">Message</button>
-                        </div>
-                        <!-- END SIDEBAR BUTTONS -->
+
                         <!-- SIDEBAR MENU -->
                         <div class="profile-usermenu">
                             <ul class="nav">
-                                <li>
-                                    <a ui-sref="admin.customers">Customers</a>
-                                </li>
-                                <li class="active">
-                                    <a ui-sref="admin.database">Database</a>
-                                </li>
-                                <li>
-                                    <a ui-sref="admin.users">Users</a>
-                                </li>
+                              <li>
+                                  <a ui-sref="admin.customers">Customers</a>
+                              </li>
+                              <li>
+                                  <a ui-sref="admin.users">Users</a>
+                              </li>
+                              <li class="active">
+                                  <a ui-sref="admin.database">Database</a>
+                              </li>
 
                             </ul>
                         </div>
