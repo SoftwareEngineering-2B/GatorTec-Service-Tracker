@@ -14,35 +14,8 @@ let passportLocal = function(passport){
   });
 
   passport.deserializeUser(function(sessionUser, done){
-    // user.findById(id, function(err, user){
       done(null, sessionUser);
-      // console.log('DESERIALIZING USER');
-      // console.log(sessionUser);
-    // });
   });
-
-  // Registration endpoint for adding employees
-  passport.use('local.register', new LocalStrategy({
-    usernameField: "username",  // This field is an email address
-    passwordField: "userPassword", // This field is a phone number
-    passReqToCallback: true
-  }, function(req, username, userPassword, done){
-
-    user.findOne({ "username": username }, function(err, User){
-      if(err){ return done(err); }
-      if(User){ return done(null, false); }
-
-      let newUser = new user();
-      newUser.username = req.body.username;
-      newUser.userRole = req.body.userRole;
-      newUser.userPassword = passport.encryptPassword(req.body.userPassword);
-
-      user.create(newUser, function(err, newUser){
-        if(err){ return done(err); }
-        return done(null, newUser);
-      });
-     });
-    }));
 
   // Login endpoint for users
   passport.use('local.login', new LocalStrategy({
