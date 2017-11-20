@@ -68,6 +68,11 @@ exports.login = function(req, res){
   return res.status(200).send(userRole);
 };
 
+exports.logout = function(req, res){
+  req.logout();
+  res.redirect('/login');
+};
+
 // Edit an user by username/email
 // exports.edit = function(req, res){
 //
