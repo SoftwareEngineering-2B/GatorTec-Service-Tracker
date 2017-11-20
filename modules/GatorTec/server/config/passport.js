@@ -25,7 +25,7 @@ let passportLocal = function(passport){
   }, function(req, username, userPassword, done){
 
       if(validator.isEmail(username)){ // A technician or an admin is logging in
-        user.findOne({ "username": username, "userRole": { $ne: 'customer' } }, function(err, user){
+        user.findOne({ "username": username, "userRole": { $ne: 'Customer' } }, function(err, user){
           if(err){ return done(err); }
           if(!user){ return done(null, false); }
           if(!passport.validPassword(req.body.userPassword, user.userPassword)){ return done(null, false); }
@@ -40,7 +40,7 @@ let passportLocal = function(passport){
           if(!repairOrder){ return done(null, false); }
 
           // Finds user that the repairOrder belongs to
-          user.findOne({ "username": repairOrder.customerEmail, "userRole": 'customer' }, function(err, user){
+          user.findOne({ "username": repairOrder.customerEmail, "userRole": 'Customer' }, function(err, user){
             if(err){ return done(err); }
             if(!user){ return done(null, false); }
             if(!passport.validPassword(req.body.userPassword, user.userPassword)){ return done(null, false); }
