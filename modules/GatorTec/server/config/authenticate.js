@@ -3,15 +3,15 @@
 // repairOrder.getAllRepairOrdersByEmail
 exports.isCustomer = function(req, res, next){
     if(req['user'] == undefined){
-      res.send(401);
+      return res.status(401).send('Unauthorized');
     }
     else{
       let userRole = req['user'].userRole;
-      if(userRole == 'Customer' || userRole == 'customer'){
+      if(userRole == 'Customer'){
         next();
       }
       else{
-        res.send(401);
+        return res.status(401).send('Unauthorized');
       }
     }
 };
@@ -20,15 +20,15 @@ exports.isCustomer = function(req, res, next){
 //           repairOrder.add | repairOrder.delete
 exports.isAdmin = function(req, res, next){
     if(req['user'] == undefined){
-      res.send(401);
+      return res.status(401).send('Unauthorized');
     }
     else{
       let userRole = req['user'].userRole;
-      if(userRole == 'Admin' || userRole == 'admin'){
+      if(userRole == 'Admin'){
         next();
       }
       else{
-        res.send(401);
+        return res.status(401).send('Unauthorized');
       }
     }
 };
@@ -37,15 +37,15 @@ exports.isAdmin = function(req, res, next){
 //           repairOrder.unblacklist
 exports.isTechnicianOrAdmin = function(req, res, next){
     if(req['user'] == undefined){
-      res.send(401);
+      return res.status(401).send('Unauthorized');
     }
     else{
       let userRole = req['user'].userRole;
-      if(userRole == 'Technician' || userRole == 'Admin' || userRole == 'technician' || userRole == 'admin'){
+      if(userRole == 'Technician' || userRole == 'Admin'){
         next();
       }
       else{
-        res.send(401);
+        return res.status(401).send('Unauthorized');
       }
     }
 };
