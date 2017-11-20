@@ -11,10 +11,11 @@ exports.add = function(req, res, next){
       let sro = req.body;
 
       repairOrder.create(sro, function(err, sro){
+
         if(err){
-          res.status(403).send('Bad Request');
+          return res.status(400).send('Bad Request');
         }
-        console.log(sro);
+
         next();
       });
     }
@@ -27,24 +28,25 @@ exports.add = function(req, res, next){
 
 exports.createUserFromSRO = function(req, res){
 
-  user.findOne({ "username": req.body.customerEmail, "userRole": 'customer' }, function(err, existingUser){
+  user.findOne({ "username": req.body.customerEmail, "userRole": 'Customer' }, function(err, existingUser){
     if(!existingUser){
       let newUser = new user();
+      newUser.name = req.body.customerName;
       newUser.username = req.body.customerEmail;
-      newUser.userRole = 'customer';
+      newUser.userRole = 'Customer';
       newUser.userPassword = passport.encryptPassword(req.body.customerPhoneNumber);
 
       user.create(newUser, function(err, newUser){
+
         if(err){
-          res.status(403).send('Bad Request');
+          return res.status(400).send('Bad Request');
         }
 
-        console.log(newUser);
-        res.status(200).send();
+        return res.status(200).end();
       });
     }
     else{
-      res.status(200).send();
+      return res.status(200).end();
     }
   });
 
@@ -56,10 +58,10 @@ exports.getAllRepairOrders = function(req, res){
   repairOrder.find({}, function(err, repairOrders){
 
     if(err){
-      res.status(500).send('Internal Server Error');
+      return res.status(500).send('Internal Server Error');
     }
 
-    res.status(200).send(repairOrders);
+    return res.status(200).send(repairOrders);
   });
 
 };
@@ -72,10 +74,10 @@ exports.getAllRepairOrdersByEmail = function(req, res){
   repairOrder.find({ customerEmail: username, blacklist: false }, function(err, repairOrders){
 
     if(err){
-      res.status(500).send('Internal Server Error');
+      return res.status(500).send('Internal Server Error');
     }
 
-    res.status(200).send(repairOrders);
+    return res.status(200).send(repairOrders);
   });
 
 };
@@ -84,14 +86,14 @@ exports.getAllRepairOrdersByEmail = function(req, res){
 exports.blacklist = function(req, res){
 
   let sroID = req.body.sroID;
-
+  
   repairOrder.findOneAndUpdate({ sroID: sroID, blacklist: false }, { blacklist: true }, { new: true }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
     }
 
-    res.status(200).send(repairOrder);
+    res.status(200).send(repairOrder.blacklist);
   });
 
 };
@@ -100,14 +102,14 @@ exports.blacklist = function(req, res){
 exports.unblacklist = function(req, res){
 
   let sroID = req.body.sroID;
-
+  // console.log(req.body);
   repairOrder.findOneAndUpdate({ sroID: sroID, blacklist: true}, { blacklist: false }, { new: true }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
     }
 
-    res.status(200).send(repairOrder);
+    res.status(200).send(repairOrder.blacklist);
   });
 
 };
@@ -138,7 +140,7 @@ exports.delete = function(req, res){
       res.status(500).send('Internal Server Error');
     }
 
-    res.status(200).send(repairOrder);
+    res.status(200).end();
   });
 
 };
