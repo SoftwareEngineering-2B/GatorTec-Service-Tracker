@@ -17,4 +17,7 @@ router.route('/delete')
 router.route('/login')
   .post(passport.authenticate('local.login', {}), user.login);
 
+router.route('/logout')
+  .get(user.logout);
+
 module.exports = router;
