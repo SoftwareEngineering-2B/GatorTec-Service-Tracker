@@ -4,9 +4,10 @@ const Schema = mongoose.Schema;
 // Model for the user
 let user = new Schema({
 
-  username: String,
-  userPassword: String,
-  userRole: String
+  name: { type: String, required: true },
+  username: { type: String, required: true },
+  userPassword: { type: String, required: true },
+  userRole: { type: String, required: true }
 
 });
 

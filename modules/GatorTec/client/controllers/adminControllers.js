@@ -17,7 +17,7 @@
       httpAPI.blacklistRepairOrder(sroID).then(function(response){
         for(let i in $scope.customers){
           if($scope.customers[i].sroID == sroID){
-            $scope.customers[i].blacklist = true;
+            $scope.customers[i].blacklist = response;
           }
         }
       });
@@ -27,7 +27,7 @@
       httpAPI.unblacklistRepairOrder(sroID).then(function(response){
         for(let i in $scope.customers){
           if($scope.customers[i].sroID == sroID){
-            $scope.customers[i].blacklist = false;
+            $scope.customers[i].blacklist = response;
           }
         }
       });
@@ -52,8 +52,10 @@
       $scope.employees = response;
     });
 
-    $scope.add = function(username, userPassword, userRole){
-      // httpAPI.addUser(username, userPassword, userRole);
+    $scope.add = function(name, username, userPassword, userRole){
+      httpAPI.addUser(name, username, userPassword, userRole).then(function(repsonse){
+          $scope.employees.push(response);
+        });
     };
 
     $scope.delete = function(email){

@@ -40,10 +40,8 @@
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
-        return response;
+        return response.data;
       }, function errorCallback(response){
-        console.log(response);
         return response;
       });
 
@@ -59,10 +57,8 @@
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
-        return response;
+        return response.data;
       }, function errorCallback(response){
-        console.log(response);
         return response;
       });
 
@@ -78,19 +74,18 @@
         data: body
       })
       .then(function successCallback(response){
-        console.log(response);
         return response;
       }, function errorCallback(response){
-        console.log(response);
         return response;
       });
     };
 
 ///////////////////////////// USERS ////////////////////////////////
 
-    this.addUser = function(username, userPassword, userRole){
+    this.addUser = function(name, username, userPassword, userRole){
 
       let body = {
+        "name": name,
         "username": username,
         "userPassword": userPassword,
         "userRole": userRole
@@ -102,7 +97,7 @@
         data: body
       })
       .then(function successCallback(response){
-        return response;
+        return response.data;
       }, function errorCallback(response){
         return response;
       });
@@ -130,10 +125,8 @@
         url: 'http://localhost:8080/user/delete',
         data: body
       }).then(function successCallback(response){
-        console.log(response);
         return response;
       }, function errorCallback(response){
-        console.log(response);
         return response;
       });
     };
@@ -151,13 +144,13 @@
         data: body
       })
       .then(function successCallback(response){
-        if(response.data == 'customer'){
+        if(response.data == 'Customer'){
           $state.go('customer');
         }
-        else if(response.data == 'technician'){
+        else if(response.data == 'Technician'){
           $state.go('technician');
         }
-        else if(response.data == 'admin'){
+        else if(response.data == 'Admin'){
           $state.go('admin.users');
         }
       }, function errorCallback(response){

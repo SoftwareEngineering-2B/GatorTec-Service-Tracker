@@ -1,23 +1,47 @@
 const mongoose = require('mongoose');
 const user = require('../models/user.js');
-// const passport = require('passport');
+const passport = require('passport');
 
-// Add an user
+// Add a user
 exports.add = function(req, res){
-  res.status(200).send();
+
+  user.findOne({ "username": req.body.username }, function(err, User){
+
+    if(err){
+      return res.status(500).send('Internal Server Error');
+    }
+
+    if(User){
+      return res.status(409).send('Conflict');
+    }
+
+    let newUser = new user();
+    newUser.name = req.body.name;
+    newUser.username = req.body.username;
+    newUser.userRole = req.body.userRole;
+    newUser.userPassword = passport.encryptPassword(req.body.userPassword);
+
+    user.create(newUser, function(err, newUser){
+
+      if(err){
+        return res.status(400).send('Bad Request');
+      }
+
+      return res.status(200).send(newUser);
+    });
+   });
 };
 
 // Get all users
 exports.getAllUsers = function(req, res){
 
-  user.find({"userRole": { $ne: 'customer' }}, function(err, users){
+  user.find({"userRole": { $ne: 'Customer' }}, function(err, users){
 
     if(err){
-      console.log(err);
-      res.status(500).send('Internal Server Error');
+      return res.status(500).send('Internal Server Error');
     }
 
-    res.status(200).send(users);
+    return res.status(200).send(users);
   });
 
 };
@@ -31,17 +55,17 @@ exports.delete = function(req, res){
   user.findOneAndRemove({ username: username }, function(err, user){
 
     if(err){
-      res.status(500).send('Internal Server Error');
+      return res.status(500).send('Internal Server Error');
     }
 
-    res.status(200).send(user);
+    return res.status(200).end();
   });
 
 };
 
 exports.login = function(req, res){
   let userRole = req['user'].userRole;
-  res.status(200).send(userRole);
+  return res.status(200).send(userRole);
 };
 
 // Edit an user by username/email
