@@ -26,6 +26,10 @@
     display: none;
 }
 
+.input-group {
+       padding: 10px;
+   }
+
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
@@ -50,7 +54,7 @@
 
 body {
   padding-top: 65px;
-  background: #F1F3FA;
+  background: white;
 }
 
 .admin-navbar{
@@ -85,11 +89,6 @@ padding: 19px 10px 10px 10px;
 font-size: 14px;
 }
 
-.device-container {
-margin: 40px 20px 40px -60px;
-border-radius: 7px;
-}
-
 .collapse {
   padding: 0px !important;
 }
@@ -110,15 +109,18 @@ border-radius: 7px;
     padding: 0 !important;
 }
 
-/* Profile container */
-.profile {
-  margin: 20px 0;
-}
-
 /* Profile sidebar */
 .profile-sidebar {
-  padding: 20px 0 10px 0;
+  border:1px solid #4C88BE;
+  border-radius: 8px;
+  padding-top: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
   background: #fff;
+}
+
+.col-md-4 {
+  margin-left: -8%
 }
 
 .profile-userpic img {
@@ -170,14 +172,19 @@ border-radius: 7px;
 
 .profile-usermenu {
   margin-top: 30px;
+  padding-bottom: 3%;
 }
 
 .profile-usermenu ul li {
   border-bottom: 1px solid #f0f4f7;
+  border-radius: 8px;
+
 }
 
 .profile-usermenu ul li:last-child {
   border-bottom: none;
+  border-radius: 8px;
+
 }
 
 .profile-usermenu ul li a {
@@ -204,6 +211,7 @@ border-radius: 7px;
   color: #5b9bd1;
   background-color: #f6f9fb;
   border-left: 2px solid #5b9bd1;
+  border-radius: 8px;
   margin-left: -2px;
 }
 

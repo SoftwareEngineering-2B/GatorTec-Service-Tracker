@@ -2,13 +2,15 @@
     <div class="container-fluid">
 
         <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
-
+        <div id="admin-navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right text">
+            <li><a>Sign Out</a></li>
+          </ul>
+        </div>
     </div>
 </nav>
 
-<div>
-    <h1 align="center">Admin - Users</h1>
-</div>
+
 
 <div class="row">
   <div class="col-md-4">
@@ -56,13 +58,17 @@
 
 
 
-    <div class="col-md-8">
+    <div class="col-md-8" style="border-top:1px solid #4C88BE; border-radius: 8px;border-right:1px solid #4C88BE; border-left:1px solid #4C88BE;">
+      <div>
+          <h1 align="center">Admin - Users</h1>
+      </div>
         <div class="input-group" id="searchBar" style="padding-bottom: 1%">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
             <input type="text" class="form-control" placeholder="Search" ng-model="searchEmployee">
         </div>
     </div>
-    <div class="col-md-8">
+
+    <div class="col-md-8" style="border-radius: 8px;border-right:1px solid #4C88BE; border-left:1px solid #4C88BE;">
         <button class="btn btn-sm btn-primary col-sm-12" type="button" name="button" data-toggle="modal" data-target="#addUser">
           <i class="fa fa-user-plus" aria-hidden="true"></i>Add User</button>
 
@@ -120,7 +126,7 @@
 
 
 
-<div class="col-md-8 tableWrapper"><br/>
+<div class="col-md-8 tableWrapper" style="border-radius: 8px;border-bottom:1px solid #4C88BE; border-right:1px solid #4C88BE; border-left:1px solid #4C88BE;"><br/>
     <table class="table table-striped table-hover">
         <thead>
             <th>Employee Name</th>
