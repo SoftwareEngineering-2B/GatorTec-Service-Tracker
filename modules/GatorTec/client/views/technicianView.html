@@ -1,11 +1,107 @@
 <div class="technician-body">
+
   <nav class="navbar tech-navbar nav-bottom-border navbar-fixed-top">
+    <div class="container-fluid">
+
+      <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
+
+
+      <div id="tech-navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right text">
+          <li><a>Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="row">
+      <div class="col-md-4">
+          <div class="container">
+              <div class="col-md-3">
+                  <div class="profile-sidebar">
+                      <!-- SIDEBAR USERPIC -->
+                      <div class="profile-userpic" align="center" style="color: #4C88BE">
+                          <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                      </div>
+                      <!-- END SIDEBAR USERPIC -->
+                      <!-- SIDEBAR USER TITLE -->
+                      <div class="profile-usertitle">
+                          <div class="profile-usertitle-name">
+                              Marcus Doe
+                          </div>
+                          <div class="profile-usertitle-job">
+                              Developer
+                          </div>
+                      </div>
+                      <!-- END SIDEBAR USER TITLE -->
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="col-md-8 tablewrapper" style="border-radius: 8px; border:1px solid #4C88BE;
+      box-shadow: 10px 10px 5px #4C88BE;">
+        <div>
+          <h1 align="center">Technician</h1>
+        </div>
+
+        <div class="input-group" id="searchBar">
+          <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+          <input type="text" class="form-control" placeholder="Search" ng-model="searchCustomer">
+        </div>
+
+
+        <table class="table table-striped table-hover">
+
+          <thead style="background-color: white;">
+            <th>SRO #</th>
+            <th>Customer Name</th>
+            <th>Customer Phone</th>
+            <th>Customer Email</th>
+          </thead>
+
+          <tbody ng-repeat="customer in customers | filter:searchCustomer">
+            <tr id="cust" data-toggle="collapse" data-target="#accordion{{customer.sroID}}" class="clickable" ng-class="{'blacklisted':customer.blacklist}">
+              <td>{{customer.sroID}}</td>
+              <td>{{customer.customerName}}</td>
+              <td>{{customer.customerPhoneNumber}}</td>
+              <td>{{customer.customerEmail}}</td>
+            </tr>
+            <tr>
+              <td colspan="6" class="hiddenRow">
+                <div id="accordion{{customer.sroID}}" class="collapse">
+                  <div class="col-sm-3">
+                    <i class="fa fa-mobile fa-5x"></i></br>
+                    <b>Device: </b>{{customer.deviceType}}</br>
+                    <b>Serial Number: </b>{{customer.serialNumber}}</br>
+                    <b>Date Created: </b>{{customer.dateCreated}}</br>
+                    <b>Date Modified: </b>{{customer.dateModified}}</br></br>
+                    <button class="btn btn-md" type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
+                    <button class="btn btn-md" type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
+                   </div>
+                  <div class="col-sm-8">
+                    <b>Problem Description: </b>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum<br/>
+                    <b>Work Performed: </b>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum<br/>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      </div>
+
+
+
+<!-- <nav class="navbar tech-navbar nav-bottom-border navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header tech-nav-header nav-header text">GatorTec Service Tracker<span style="color:white"> - Technician</span></div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right text">
-          <li class="nav-space">Hello, {{customers.customerName}}</li>
-          <li class="center-bar">|</li>
           <li><a>Sign Out</a></li>
         </ul>
       </div>
@@ -25,7 +121,7 @@
 
       <div class="panel-group" ng-repeat="customer in customers | filter:searchCustomer" style="margin-bottom: 0px">
         <div class="panel">
-          <!-- unite, gradient, fill, bordered, minimal, strech, simple -->
+          unite, gradient, fill, bordered, minimal, strech, simple
           <div class="panel-heading bttn-unite bttn-md bttn-primary" data-toggle="collapse" data-target="#accordion{{customer.sroID}}" ng-class="{'blacklisted':customer.blacklist}">
             <h4 class="panel-title" >
               <div class="row">
@@ -62,7 +158,7 @@
           </div>
         </div>
       </div>
-
+-->
     <!-- <div class="tableWrapper"><br/>
       <table class="table table-striped table-hover">
 
@@ -103,5 +199,5 @@
       </table>
     </div> -->
 
-  </div>
+  <!--</div>-->
 </div>
