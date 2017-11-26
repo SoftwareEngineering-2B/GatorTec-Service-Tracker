@@ -4,6 +4,13 @@
     overflow: hidden;
 }
 
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
@@ -117,6 +124,10 @@ font-size: 14px;
   padding-left: 5%;
   padding-right: 5%;
   background: #fff;
+}
+
+.blacklisted {
+  color: white !important;
 }
 
 .col-md-4 {

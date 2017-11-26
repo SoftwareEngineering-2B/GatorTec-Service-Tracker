@@ -76,7 +76,7 @@
           </thead>
 
           <tbody ng-repeat="customer in customers | filter:searchCustomer">
-            <tr id="cust" data-toggle="collapse" data-target="#accordion{{customer.sroID}}" class="clickable">
+            <tr id="cust" data-toggle="collapse" data-target="#accordion{{customer.sroID}}" ng-class="{'blacklisted':customer.blacklist}" class="clickable">
               <td>{{customer.sroID}}</td>
               <td>{{customer.customerName}}</td>
               <td>{{customer.customerPhoneNumber}}</td>
