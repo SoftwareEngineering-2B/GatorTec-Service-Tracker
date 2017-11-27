@@ -14,6 +14,16 @@
   box-shadow: 6px 6px 5px #4C88BE;
 }
 
+#blist {
+  border:1px solid #4C88BE !important;
+  margin-bottom: 5%;
+}
+
+#unblist {
+  border:1px solid #4C88BE !important;
+  margin-bottom: 5%;
+}
+
 #sideb {
   padding-bottom: 5%;
 }

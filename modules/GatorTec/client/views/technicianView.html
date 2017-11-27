@@ -23,10 +23,10 @@
                       <!-- SIDEBAR USER TITLE -->
                       <div class="profile-usertitle">
                           <div class="profile-usertitle-name">
-                              Marcus Doe
+                            {{currentEmployee.name}}
                           </div>
                           <div class="profile-usertitle-job">
-                              Developer
+                              {{currentEmployee.userRole}}
                           </div>
                       </div>
                       <br/>
@@ -78,8 +78,12 @@
                     <b>Serial Number: </b>{{customer.serialNumber}}</br>
                     <b>Date Created: </b>{{customer.dateCreated}}</br>
                     <b>Date Modified: </b>{{customer.dateModified}}</br></br>
-                    <button class="btn btn-md" type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
-                    <button class="btn btn-md" type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
+
+                    <button class="btn btn-md" type="button" name="button" ng-show="{{!customer.blacklist}}"
+                    ng-click="blacklist(customer.sroID)" id="blist" onClick="history.go(0)">Blacklist</button>
+                    <button class="btn btn-md ng-hide" type="button" name="button" ng-hide="{{!customer.blacklist}}"
+                    ng-click="unblacklist(customer.sroID)" id="unblist" onClick="history.go(0)">Unblacklist</button>
+
                    </div>
                   <div class="col-sm-8">
                     <b>Problem Description: </b>{{customer.problemDescription}}<br/>

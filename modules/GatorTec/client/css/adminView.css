@@ -20,6 +20,16 @@ input:valid {
   padding-top: 3%;
 }
 
+#blist {
+  border:1px solid #4C88BE !important;
+  margin-bottom: 5%;
+}
+
+#unblist {
+  border:1px solid #4C88BE !important;
+  margin-bottom: 5%;
+}
+
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;

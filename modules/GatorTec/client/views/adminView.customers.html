@@ -90,8 +90,10 @@
                     <b>Serial Number: </b>{{customer.serialNumber}}</br>
                     <b>Date Created: </b>{{customer.dateCreated}}</br>
                     <b>Date Modified: </b>{{customer.dateModified}}</br></br>
-                    <button class="btn btn-md" type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
-                    <button class="btn btn-md" type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
+                    <button class="btn btn-md" type="button" id="blist" name="button" ng-show="{{!customer.blacklist}}"
+                    ng-click="blacklist(customer.sroID)" onClick="history.go(0)">Blacklist</button>
+                    <button class="btn btn-md ng-hide" type="button" id="unblist" name="button" ng-hide="{{!customer.blacklist}}"
+                    ng-click="unblacklist(customer.sroID)" onClick="history.go(0)">Unblacklist</button>
                     <div style="padding-top: 2%">
                     <button class="btn btn-md btn-danger" type="button" name="button" ng-click="delete(customer.sroID)">delete</button>
                     </div>
