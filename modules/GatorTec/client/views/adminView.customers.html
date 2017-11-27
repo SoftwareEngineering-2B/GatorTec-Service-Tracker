@@ -1,13 +1,7 @@
   <nav class="navbar admin-navbar nav-bottom-border navbar-fixed-top">
     <div class="container-fluid">
-
-      <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
-
-
+      <div class="navbar-header nav-header text navbar-center">GatorTec Service Tracker</div>
       <div id="admin-navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right text">
-          <li><a>Sign Out</a></li>
-        </ul>
       </div>
     </div>
   </nav>
@@ -15,7 +9,7 @@
 
 
   <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4" id="sideb">
           <div class="container">
               <div class="col-md-3">
                   <div class="profile-sidebar">
@@ -27,16 +21,16 @@
                       <!-- SIDEBAR USER TITLE -->
                       <div class="profile-usertitle">
                           <div class="profile-usertitle-name">
-                              Marcus Doe
+                              {{currentEmployee.name}}
                           </div>
                           <div class="profile-usertitle-job">
-                              Developer
+                            {{currentEmployee.userRole}}
                           </div>
                       </div>
                       <!-- END SIDEBAR USER TITLE -->
 
                       <!-- SIDEBAR MENU -->
-                      <div class="profile-usermenu">
+                      <div class="profile-usermenu text-center">
                           <ul class="nav">
                               <li class="active">
                                   <a ui-sref="admin.customers">Customers</a>
@@ -47,6 +41,11 @@
                               <li>
                                   <a ui-sref="admin.database">Database</a>
                               </li>
+                              <br/>
+                              <li>
+                                <button class="btn btn-sm btn-danger" id="signout" type="button" name="button">Sign Out</button>
+                              </li>
+                              <br/>
                           </ul>
                       </div>
                       <!-- END MENU -->
@@ -55,7 +54,7 @@
           </div>
       </div>
 
-      <div class="col-md-8 tablewrapper" style="border-radius: 8px;border:1px solid #4C88BE;">
+      <div class="col-md-8 tablewrapper" style="border-radius: 3px;border:1px solid #4C88BE;">
         <div>
           <h1 align="center">Admin - Customers</h1>
         </div>
@@ -98,8 +97,8 @@
                     </div>
                    </div>
                   <div class="col-sm-8">
-                    <b>Problem Description: </b>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum<br/>
-                    <b>Work Performed: </b>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum<br/>
+                    <b>Problem Description: </b>{{customer.problemDescription}}<br/>
+                    <b>Work Performed: </b>{{customer.workPerformed}}<br/>
                   </div>
                 </div>
               </td>

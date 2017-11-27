@@ -43,12 +43,20 @@
       });
     };
 
+    $scope.employees = [];
+    httpAPI.getAllUsers().then(function(response){
+      console.log(response);
+      $scope.currentEmployee = response[0];
+      $scope.employees = response;
+    });
+
   }])
   .controller('adminControllerUsers', ['$scope', 'httpAPI', function($scope, httpAPI) {
 
     $scope.employees = [];
 
     httpAPI.getAllUsers().then(function(response){
+      $scope.currentEmployee = response[0];
       $scope.employees = response;
     });
 
@@ -70,6 +78,11 @@
 
   }])
   .controller('adminControllerDatabase', ['$scope', 'httpAPI', function($scope, httpAPI) {
+    $scope.employees = [];
 
+    httpAPI.getAllUsers().then(function(response){
+      $scope.currentEmployee = response[0];
+      $scope.employees = response;
+    });
   }]);
 })();

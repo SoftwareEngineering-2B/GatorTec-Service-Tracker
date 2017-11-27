@@ -1,19 +1,13 @@
   <nav class="navbar admin-navbar nav-bottom-border navbar-fixed-top">
     <div class="container-fluid">
-
-      <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
-
+      <div class="navbar-header nav-header text navbar-center">GatorTec Service Tracker</div>
       <div id="admin-navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right text">
-          <li><a>Sign Out</a></li>
-        </ul>
       </div>
-
       </div>
     </nav>
 
     <div class="row">
-        <div class="col-md-4" style="padding-bottom: 3%;">
+        <div class="col-md-4"  id="sideb" style="padding-bottom: 3%;">
             <div class="container">
 
                 <div class="col-md-3">
@@ -26,16 +20,16 @@
                         <!-- SIDEBAR USER TITLE -->
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name">
-                                Marcus Doe
+                              {{currentEmployee.name}}
                             </div>
                             <div class="profile-usertitle-job">
-                                Developer
+                                {{currentEmployee.userRole}}
                             </div>
                         </div>
                         <!-- END SIDEBAR USER TITLE -->
 
                         <!-- SIDEBAR MENU -->
-                        <div class="profile-usermenu">
+                        <div class="profile-usermenu text-center">
                             <ul class="nav">
                               <li>
                                   <a ui-sref="admin.customers">Customers</a>
@@ -46,7 +40,11 @@
                               <li class="active">
                                   <a ui-sref="admin.database">Database</a>
                               </li>
-
+                              <br/>
+                              <li>
+                                <button class="btn btn-sm btn-danger" id="signout" type="button" name="button">Sign Out</button>
+                              </li>
+                              <br/>
                             </ul>
                         </div>
                         <!-- END MENU -->
@@ -56,7 +54,7 @@
         </div>
 
 
-    <div id="body" class="col-md-8" style="border:1px solid #4C88BE; padding-bottom:3%; border-radius: 8px;">
+    <div id="body" class="col-md-8" style="border:1px solid #4C88BE; padding-bottom:3%; border-radius: 3px;">
       <h1 align="center">Admin - Upload</h1>
       <div align="center">
       <label class="btn btn-default btn-file">

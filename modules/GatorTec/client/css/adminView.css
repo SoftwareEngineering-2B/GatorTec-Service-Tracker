@@ -11,6 +11,15 @@ input:invalid {
 input:valid {
   border: 2px solid black;
 }
+
+#sideb {
+  padding-bottom: 5%;
+}
+
+#signout {
+  padding-top: 3%;
+}
+
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
@@ -68,6 +77,17 @@ body {
   background-color: white;
   color: #4C88BE;
   text-align: center;
+  left: 0;
+}
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+  float:none;
 }
 
 .nav-bottom-border {
@@ -124,6 +144,7 @@ font-size: 14px;
   padding-left: 5%;
   padding-right: 5%;
   background: #fff;
+
 }
 
 .blacklisted {
