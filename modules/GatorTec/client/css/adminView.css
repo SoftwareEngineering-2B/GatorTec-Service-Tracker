@@ -139,7 +139,7 @@ font-size: 14px;
 }
 
 .blacklisted {
-  background-color: #2d2d2d !important;
+  background-color: green;
 }
 
 .hiddenRow {
@@ -155,10 +155,6 @@ font-size: 14px;
   padding-right: 5%;
   background: #fff;
 
-}
-
-.blacklisted {
-  color: white !important;
 }
 
 .col-md-4 {
@@ -262,4 +258,8 @@ font-size: 14px;
   padding: 20px;
   background: #fff;
   min-height: 460px;
+}
+
+.blacklisted {
+  color: white !important;
 }
