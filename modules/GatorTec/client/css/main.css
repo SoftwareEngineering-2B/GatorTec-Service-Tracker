@@ -13,7 +13,7 @@ border-color: rgba(211, 211, 211, 0.71);
 }
 
 .nav-fixed {
-position: fixed;
+position: absolute;
 top: 0;
 left: 1%;
 right: 1%;
@@ -41,7 +41,8 @@ margin: 0;
 .nav-space {
 text-align: center;
 font-size: 14px;
-position: fixed;
+padding-right: 2%;
+position: absolute;
 }
 
 .logout-button {
