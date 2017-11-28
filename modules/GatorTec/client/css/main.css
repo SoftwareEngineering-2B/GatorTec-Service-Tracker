@@ -2,6 +2,7 @@
 /* BODY */
 .customer_body {
 padding-top: 55px;
+
 }
 
 /* NAV BAR STYLING */
@@ -29,7 +30,7 @@ height: fit-content;
 }
 
 .nav-right-container {
-position: fixed;
+position: absolute;
 height: 60px;
 width: 230px;
 right: 1%;
@@ -52,7 +53,7 @@ position: fixed;
 
 /* DEVICE SELECTION BAR */
 .device-container {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 10%;
   right: 10%;
@@ -134,7 +135,7 @@ display: inline;
 
 /* DEVICE REPAIR INFORMATION */
 .repair-container {
-position: fixed;
+position: absolute;
 text-align: center;
 margin: 5px;
 left: 10%;
