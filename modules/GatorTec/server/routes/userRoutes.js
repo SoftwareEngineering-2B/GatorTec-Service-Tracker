@@ -6,13 +6,13 @@ const authenticate = require('../config/authenticate.js');
 
 // Defining routes for the different kinds of request made for a user
 router.route('/add')
-  .post(/*authenticate.isAdmin,*/ user.add);
+  .post(authenticate.isAdmin, user.add);
 
 router.route('/getAllUsers')
-  .get(/*authenticate.isAdmin,*/ user.getAllUsers);
+  .get(authenticate.isAdmin, user.getAllUsers);
 
 router.route('/delete')
-  .delete(/*authenticate.isAdmin,*/ user.delete);
+  .delete(authenticate.isAdmin, user.delete);
 
 router.route('/login')
   .post(passport.authenticate('local.login', {}), user.login);
