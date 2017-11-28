@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('admin', [])
-  .controller('adminControllerCustomers', ['$scope', 'httpAPI', function($scope, httpAPI) {
+  .controller('adminControllerCustomers', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
 
     $scope.customers = [];
 
@@ -43,8 +43,12 @@
       });
     };
 
+    $scope.logout = function(){
+      authAPI.logout();
+    };
+
   }])
-  .controller('adminControllerUsers', ['$scope', 'httpAPI', function($scope, httpAPI) {
+  .controller('adminControllerUsers', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
 
     $scope.employees = [];
 
@@ -53,7 +57,7 @@
     });
 
     $scope.add = function(name, username, userPassword, userRole){
-      httpAPI.addUser(name, username, userPassword, userRole).then(function(repsonse){
+      httpAPI.addUser(name, username, userPassword, userRole).then(function(response){
           $scope.employees.push(response);
         });
     };
@@ -68,8 +72,16 @@
       });
     };
 
+    $scope.logout = function(){
+      authAPI.logout();
+    };
+
   }])
-  .controller('adminControllerDatabase', ['$scope', 'httpAPI', function($scope, httpAPI) {
+  .controller('adminControllerDatabase', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
+
+    $scope.logout = function(){
+      authAPI.logout();
+    };
 
   }]);
 })();
