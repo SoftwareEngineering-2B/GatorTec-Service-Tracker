@@ -1,3 +1,4 @@
+<div class="admin_body">
   <nav class="navbar admin-navbar nav-bottom-border navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header nav-header text navbar-center">GatorTec Service Tracker</div>
@@ -46,16 +47,16 @@
                           </ul>
                       </div>
                       <!-- END MENU -->
+                    </div>
                   </div>
+                </div>
               </div>
-          </div>
-      </div>
+
 
       <div class="col-md-8 tablewrapper" style="border-radius: 3px;border:1px solid #4C88BE;">
         <div>
           <h1 align="center">Admin - Customers</h1>
         </div>
-
         <div class="input-group" id="searchBar">
           <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
           <input type="text" class="form-control" placeholder="Search" ng-model="searchCustomer">
@@ -82,6 +83,7 @@
                 style="font-size:24px; text-align:right; color: black"></i></span>
             </td>
             </tr>
+
             <tr>
               <td colspan="6" class="hiddenRow">
                 <div id="accordion{{customer.sroID}}" class="collapse">
@@ -104,10 +106,10 @@
                     <b>Work Performed: </b>{{customer.workPerformed}}<br/>
                   </div>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

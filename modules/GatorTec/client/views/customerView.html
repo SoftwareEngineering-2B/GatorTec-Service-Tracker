@@ -1,21 +1,17 @@
-<nav class="navbar nav-bottom-border navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header nav-Title">GatorTec Service Tracker</div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="nav-space">Hello, {{currentDevice.customerName}}</li>
-        <li class="center-bar">|</li>
-        <li><a ng-click="logout()">Sign out</a></li>
-      </ul>
+<div class="customer_body">
+  <nav class="navbar nav-bottom-border nav-fixed">
+    <div class="container-fluid">
+      <div class="navbar-header nav-Title">GatorTec Service Tracker</div>
+      <div class="nav navbar-nav navbar-right nav-right-container">
+        <div class="nav-space">Hello, {{currentDevice.customerName}} &nbsp&nbsp|&nbsp&nbsp  <button class="logout-button" ui-sref="login">Sign out</button></div>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="container">
+  <div class="container">
 
     <!-- HORIZONTAL DEVICE BAR -->
-  <center>
-    <div class="row">
+    <div class="row device-container">
       <h3>Your Devices:</h3>
       <center>
         <table class="horizontal_table">
@@ -39,73 +35,100 @@
         </table>
       </center>
     </div>
-  </center>
 
-  <div class="row">       
-    <div class="repair-container">
+    <div class="row"> 
+      <center>      
+        <div class="repair-container">
 
-      <h1>Repair Status</h1>
-      <div class="sro-id">SRO ID: {{currentDevice.sroID}}</div>
+          <h1>Repair Status</h1>
+          <div class="sro-id">SRO ID: {{currentDevice.sroID}}</div>
 
-      <center>
-        <table class="progress_table">
-          <tr>
-            <td>
-              <!-- PROGRESS BAR 1 -->
-              <div class="progress progress_bar">
-                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
-                aria-valuenow="{{progress1}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress1}}%"></div>
+          <!-- The Alert Modal -->
+          <div id="alertModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>We need to hear from you!</h2>
               </div>
-            </td>
-            <td>
-              <!-- PROGRESS BAR 2 -->
-              <div class="progress progress_bar">
-                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
-                aria-valuenow="{{progress2}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress2}}%"></div>
-              </div>
-            </td>
-            <td>
-              <!-- PROGRESS BAR 3 -->
-              <div class="progress progress_bar">
-                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
-                aria-valuenow="{{progress3}}" aria-valuemin="0" aria-valuemax="100"style="width: {{progress3}}%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr class="progress_words">
-            <td>
-              Product received in store
-            </td>
-            <td>
-              Repair in progress
-            </td>
-            <td>
-              Product pickup pending
-            </td>
-          </tr>
-        </table>
-      </center>
-
-      <center>
-        <div class="total_notes_div">
-          <div align="left">
-            <h2 ng-show="currentDevice.status != 'Ready'">Your repair is in progress.</h2>
-            <h2 ng-show="currentDevice.status == 'Ready'">Your repair is complete.</h2>
-
-            <div class="notes-div">
-              <h3 class="date">{{currentDevice.dateCreated}}:</h3>
-              <div ng-show="currentDevice.status != 'Ready'" class="status_notes">
-                Our technicians are working on your product. We'll notify you when the repair has been completed.
-              </div>
-              <div ng-show="currentDevice.status == 'Ready'" class="status_notes">
-                Your device is ready for pick-up.
+              <div class="modal-body">
+                <p>
+                    Please call GatorTec at (352) 505-7582 during store hours as the technicians require more information or have an update about your specific repair.<br><br>
+                </p>
+                <p>
+                    Store hours:<br>
+                    Monday-Saturday: 10:00am - 7:00pm<br>
+                    Sunday: 12:00pm - 6:00pm<br><br>
+                </p>
+                <p>
+                    Thanks,<br>
+                    GatorTec Team
+                </p>
               </div>
             </div>
-
           </div>
+
+          <div class="progress_div">
+            <center>
+              <table class="progress_table">
+                <tr>
+                  <td class="progress_td">
+                    <!-- PROGRESS BAR 1 -->
+                    <div class="progress progress_bar">
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                      aria-valuenow="{{progress1}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress1}}%"></div>
+                    </div>
+                  </td>
+                  <td class="progress_td">
+                    <!-- PROGRESS BAR 2 -->
+                    <div class="progress progress_bar">
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                      aria-valuenow="{{progress2}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress2}}%"></div>
+                    </div>
+                  </td>
+                  <td class="progress_td">
+                    <!-- PROGRESS BAR 3 -->
+                    <div class="progress progress_bar">
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                      aria-valuenow="{{progress3}}" aria-valuemin="0" aria-valuemax="100"style="width: {{progress3}}%"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="progress_words">
+                  <td>
+                    Product received in store
+                  </td>
+                  <td>
+                    Repair in progress
+                  </td>
+                  <td>
+                    Product pickup pending
+                  </td>
+                </tr>
+              </table>
+            </center>
+          </div>
+
+          <div class="total_notes_div">
+            <div align="left">
+              <div ng-show="currentDevice.status != 'Ready'" class="notes-header">Your repair is in progress.</div>
+              <div ng-show="currentDevice.status == 'Ready'" class="notes-header">Your repair is complete.</div>
+
+              <div class="notes-div">
+                <div class="date">{{currentDevice.dateCreated}}:</div>
+                <div ng-show="currentDevice.status != 'Ready'" class="status_notes">
+                  Our technicians are working on your product. We'll notify you when the repair has been completed.
+                </div>
+                <div ng-show="currentDevice.status == 'Ready'" class="status_notes">
+                  Your device is ready for pick-up.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </center>
-
     </div>
   </div>
 </div>

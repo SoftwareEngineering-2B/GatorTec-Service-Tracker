@@ -1,33 +1,68 @@
 /*~~~~~~~~~~~~~~~~~~CustomerView CSS~~~~~~~~~~~~~~~~~~*/
 /* BODY */
 .customer_body {
-  padding-top: 65px;
+padding-top: 55px;
+
 }
 
 /* NAV BAR STYLING */
 .nav-bottom-border {
+border: none;
 border-bottom: solid;
 border-color: rgba(211, 211, 211, 0.71);
 }
 
+.nav-fixed {
+position: absolute;
+top: 0;
+left: 1%;
+right: 1%;
+}
+
 .nav-Title {
-font-size: 25px;
-padding: 10px 0px 0px 10px;
+position: absolute;
+margin-top: auto;
+margin-bottom: auto;
+top: 24%;
+bottom: 7%;
+font-size: 2vmax;
+height: fit-content;
+}
+
+.nav-right-container {
+position: absolute;
+height: 60px;
+width: 230px;
+right: 1%;
+padding: 0;
+margin: 0;
 }
 
 .nav-space {
 text-align: center;
-padding: 19px 10px 10px 10px;
 font-size: 14px;
+padding-right: 2%;
+position: absolute;
 }
 
-.center-bar {
-text-align: center;
-padding: 17px 0px 10px 0px;
-font-size: 14px;
+.logout-button {
+  border: none;
+  background-color: white;
+  font-weight: 500;
+  color: #6F8DEF;
 }
 
 /* DEVICE SELECTION BAR */
+.device-container {
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  right: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .horizontal_table {
 border-collapse: separate;
 border-spacing: 5px 0;
@@ -36,21 +71,18 @@ padding: 20px;
 }
 
 /* DEVICE TABLE DATA */
-.device_td:hover {
-border-radius: 10px;
-box-shadow: 0 0 10px grey;
-}
-
-.device_td:active {
-box-shadow: inset 0 0 10px grey;
-background-color: lightgrey;
+.device_td {
+  width: 25px;
+  border-radius: 10px;
 }
 
 /* DEVICE LINKS */
 .device_b {
 margin: 0;
 padding: 20px;
-border: 0;
+border-radius: 10px;
+border-style: solid;
+border-width: 0;
 font-size: 110%;
 font: inherit;
 background-color: white;
@@ -61,18 +93,19 @@ text-align: center;
 
 .device_b:hover {
 text-decoration: none;
+box-shadow: 0 0 10px grey;
 }
 
 .device_b:active {
 text-decoration: none;
+box-shadow: inset 0 0 10px grey;
+background-color: lightgrey;
 }
 
-.device_b:visited {
-text-decoration: none;
-}
-
-.device_b:link {
-text-decoration: none;
+.device_b:focus {
+  text-decoration: none;
+  box-shadow: inset 0 0 10px grey;
+  background-color: lightgrey;
 }
 
 /* DEVICE ICONS */
@@ -103,12 +136,17 @@ display: inline;
 
 /* DEVICE REPAIR INFORMATION */
 .repair-container {
+position: absolute;
 text-align: center;
-width: 1000px;
-height: auto;
-margin: 0 auto;
+margin: 5px;
+left: 10%;
+right: 10%;
+height: fit-content;
+max-width: 1000px;
+margin-left: auto;
+margin-right: auto;
+top: 340px;
 padding: 10px 10px 30px 10px;
-position: relative;
 border-radius: 7px;
 box-shadow: 0 0 10px grey;
 }
@@ -119,7 +157,64 @@ padding-top: 10px;
 padding-bottom: 20px;
 }
 
+
+/* ALERT MODAL STYLING */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+}
+
+.close {
+  color: black;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 15px 16px 0 16px;
+  font-size: 16px;
+}
+
 /* PROGRESS BAR STYLING */
+.progress_div {
+width: inherit;
+height: inherit;
+margin-left: auto;
+margin-right: auto;
+}
+
 #progressBar1, #progressBar2, #progressBar3 {
 display: inline;
 }
@@ -129,11 +224,14 @@ border-collapse: separate;
 border-spacing: 15px 0;
 }
 
-.progress_bar {
-margin: 10px auto;
-padding: 0;
+.progress_td {
 position: relative;
-width: 200px;
+width: 20%;
+}
+
+.progress_bar {
+margin: 10px 5px;
+padding: 0;
 }
 
 .progress_words {
@@ -142,8 +240,17 @@ width: 200px;
 
 /* STATUS NOTES STYLING */
 .total_notes_div {
-padding: 20px 0 0 87px;
-width: 800px;
+width: inherit;
+padding-left: 10%;
+padding-right: 5%;
+margin-top: 5%;
+margin-left: auto;
+margin-right: auto;
+}
+
+.notes-header {
+font-weight: 500;
+font-size: 25px;
 }
 
 .notes-div {
@@ -152,6 +259,7 @@ padding: 7px 0 0 7px;
 
 .date {
 font-weight: 550;
+font-size: 18px;
 }
 
 .status_notes {
