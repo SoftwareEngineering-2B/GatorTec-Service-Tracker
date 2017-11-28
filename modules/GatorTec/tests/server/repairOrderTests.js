@@ -59,8 +59,8 @@ describe("repairOrder", function(){
 
   describe("BlackListing a repairOrder", function(){
 
-    // 1) undefined
-          it("UNDEFINED repairOrder", function(done){
+    // 1) Blacklisting a repairOrder that is undefined
+          it("should return a 400 Bad Request status code when BlackListing a repairOrder that is undefined", function(done){
             let undefinedRepairOrder = undefined;
             chai.request(server)
                 .put("/repairOrder/blacklist")
@@ -71,8 +71,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 2) null
-          it("NULL repairOrder", function(done){
+    // 2) Blacklisting a repairOrder that is null
+          it("should return a 400 Bad Request status code when BlackListing a repairOrder that is null", function(done){
             let nullRepairOrder = null;
             chai.request(server)
                 .put("/repairOrder/blacklist")
@@ -83,8 +83,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 3) empty
-          it("EMPTY repairOrder", function(done){
+    // 3) Blacklisting a repairOrder that is empty
+          it("should return a 400 Bad Request status code when Deleting a repairOrder that is empty", function(done){
             let emptyRepairOrder = {};
             chai.request(server)
                 .put("/repairOrder/blacklist")
@@ -95,8 +95,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 4) does not exist
-          it("NONEXISTENT repairOrder", function(done){
+    // 4) Blacklisting a repairOrder that does not exist
+          it("should return a 404 Resource Not Found status code for a blacklisting repairOrder that does not exist", function(done){
             let notExistingRepairOrder = { "sroID": "65535" };
             chai.request(server)
                 .put("/repairOrder/blacklist")
@@ -107,8 +107,8 @@ describe("repairOrder", function(){
                 });
           });
 
-    // 5) blacklist a repairOrder
-          it("blacklisting repairOrder", function(done){
+    // 5) Blacklisting a repairOrder
+          it("should blacklist a repairOrder", function(done){
             let existingRepairOrder = { "sroID": "1" };
             chai.request(server)
                 .put("/repairOrder/blacklist")
@@ -123,8 +123,8 @@ describe("repairOrder", function(){
 
   describe("UnblackListing a repairOrder", function(){
 
-    // 1) undefined
-          it("UNDEFINED repairOrder", function(done){
+    // 1) Unblacklisting a reapirOrder that is undefined
+          it("should return a 400 Bad Request status code when UnblackListing a repairOrder that is undefined", function(done){
             let undefinedRepairOrder = undefined;
             chai.request(server)
                 .put("/repairOrder/unblacklist")
@@ -135,8 +135,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 2) null
-          it("NULL repairOrder", function(done){
+    // 2) Unblacklisting a reapirOrder that is null
+          it("should return a 400 Bad Request status code when UnblackListing a repairOrder that is null", function(done){
             let nullRepairOrder = null;
             chai.request(server)
                 .put("/repairOrder/unblacklist")
@@ -147,8 +147,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 3) empty
-          it("EMPTY repairOrder", function(done){
+    // 3) Unblacklisting a reapirOrder that is empty
+          it("should return a 400 Bad Request status code when Deleting a repairOrder that is empty", function(done){
             let emptyRepairOrder = {};
             chai.request(server)
                 .put("/repairOrder/unblacklist")
@@ -159,8 +159,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 4) does not exist
-          it("NONEXISTENT repairOrder", function(done){
+    // 4) Unblacklisting a reapirOrder that does not exist
+          it("should return a 404 Resource Not Found status code for unblacklisting a repairOrder that does not exist", function(done){
             let notExistingRepairOrder = { "sroID": "65535" };
             chai.request(server)
                 .put("/repairOrder/unblacklist")
@@ -171,8 +171,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 5) unblacklist a repairOrder
-          it("unblacklisting repairOrder", function(done){
+    // 5) Unblacklisting a repairOrder
+          it("should unblacklist a repairOrder", function(done){
             let existingRepairOrder = { "sroID": "1" };
             chai.request(server)
                 .put("/repairOrder/unblacklist")
@@ -187,8 +187,8 @@ describe("repairOrder", function(){
 
   describe("Deleting a repairOrder", function(){
 
-    // 1) undefined
-          it("UNDEFINED repairOrder", function(done){
+    // 1) Deleting a repairOrder that is undefined
+          it("should return a 400 Bad Request status code when Deleting a repairOrder that is undefined", function(done){
             let undefinedRepairOrder = undefined;
             chai.request(server)
                 .delete("/repairOrder/delete")
@@ -199,8 +199,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 2) null
-          it("NULL repairOrder", function(done){
+    // 2) Deleting a repairOrder that is null
+          it("should return a 400 Bad Request status code when Deleting a repairOrder that is null", function(done){
             let nullRepairOrder = null;
             chai.request(server)
                 .delete("/repairOrder/delete")
@@ -211,8 +211,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 3) empty
-          it("EMPTY repairOrder", function(done){
+    // 3) Deleting a repairOrder that is empty
+          it("should return a 400 Bad Request status code when Deleting a repairOrder that is empty", function(done){
             let emptyRepairOrder = {};
             chai.request(server)
                 .delete("/repairOrder/delete")
@@ -223,8 +223,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 4) does not exist
-          it("NONEXISTENT repairOrder", function(done){
+    // 4) Deleting a repairOrder that does not exist
+          it("should return a 404 Resource Not Found status code for deleting a repairOrder that does not exist", function(done){
             let notExistingRepairOrder = { "sroID": "65535" };
             chai.request(server)
                 .delete("/repairOrder/delete")
@@ -235,8 +235,8 @@ describe("repairOrder", function(){
             });
           });
 
-    // 5) deleting a repairOrder
-          it("deleting a repairOrder", function(done){
+    // 5) Deleting a repairOrder
+          it("should delete a repairOrder", function(done){
             let existingRepairOrder = { "sroID": "1" };
             chai.request(server)
                 .delete("/repairOrder/delete")
