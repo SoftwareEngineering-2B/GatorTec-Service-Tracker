@@ -154,7 +154,7 @@ chai.use(chaiHttp);
             });
 
       // 4) Deleting a user that does not exist
-            it("should return a 404 Resource Not Found status code for a user that does not exist", function(done){
+            it("should return a 404 Resource Not Found status code for a deleting a user that does not exist", function(done){
               let notExistingUser = { "username": "missing@ufl.edu" };
               chai.request(server)
                   .delete("/user/delete")
