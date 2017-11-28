@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 const user = require('../models/user.js');
 const passport = require('passport');
-
+const _ = require('lodash');
 // Add a user
 exports.add = function(req, res){
+  
+  if(_.isNil(req.body) || _.isEmpty(req.body) || !req.body.name || !req.body.username || !req.body.userPassword || !req.body.userRole){
+    return res.status(400).send('Bad Request');
+  }
 
   user.findOne({ "username": req.body.username }, function(err, User){
 
@@ -34,7 +38,7 @@ exports.add = function(req, res){
 
 // Get all users
 exports.getAllUsers = function(req, res){
-
+  
   user.find({"userRole": { $ne: 'Customer' }}, function(err, users){
 
     if(err){
@@ -49,6 +53,10 @@ exports.getAllUsers = function(req, res){
 
 // Delete an user by username/email
 exports.delete = function(req, res){
+  
+  if(_.isNil(req.body) || _.isEmpty(req.body)){
+    return res.status(400).send('Bad Request');
+  }
 
   let username = req.body.username;
 
@@ -57,6 +65,9 @@ exports.delete = function(req, res){
     if(err){
       return res.status(500).send('Internal Server Error');
     }
+    else if (_.isNil(user) || _.isEmpty(user)) {
+      return res.status(404).send("Resource Not Found")
+    }
 
     return res.status(200).end();
   });
@@ -64,8 +75,12 @@ exports.delete = function(req, res){
 };
 
 exports.login = function(req, res){
-  let userRole = req['user'].userRole;
-  return res.status(200).send(userRole);
+  let user = {
+    id: req['user']._id,
+    userId: req['user'].username,
+    userRole: req['user'].userRole
+  }
+  return res.status(200).send(user);
 };
 
 exports.logout = function(req, res){

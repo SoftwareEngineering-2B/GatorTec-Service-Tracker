@@ -46,6 +46,8 @@ app.get('/*', function(req, res){
 });
 
 // Sets the port which the server listens to requests from
-app.listen(port, function(){
+let server = app.listen(port, function(){
   console.log('Server listening on port ' + port);
 });
+
+module.exports = server;

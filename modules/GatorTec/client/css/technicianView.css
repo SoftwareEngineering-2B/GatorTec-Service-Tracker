@@ -1,7 +1,35 @@
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
+    background-color: white;
     overflow: hidden;
+}
+
+.profile-sidebar {
+  border:1px solid #4C88BE !important;
+  border-radius: 8px !important;
+  padding-top: 2% !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+  background: #fff !important;
+  box-shadow: 6px 6px 5px #4C88BE;
+}
+
+#blist {
+  border:1px solid #4C88BE !important;
+  margin-bottom: 5%;
+}
+
+#unblist {
+  border:1px solid #4C88BE !important;
+  margin-bottom: 5%;
+}
+
+#sideb {
+  padding-bottom: 5%;
+}
+
+#signoutTech {
+  padding-top: 3%;
 }
 
 /* Style the links inside the navigation bar */
@@ -15,10 +43,16 @@
     font-size: 17px;
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
+.table tr {
+  background-color: white;
+}
+
+.table td {
+  color: #4C88BE;
+}
+
+.collapse {
+  color: black !important;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
@@ -50,11 +84,11 @@
 
 .technician-body {
   padding-top: 65px;
-  background-color: #4d4d4d;
+  background-color: white;
 }
 
 .tech-navbar{
-  background-color: #333333;
+  background-color: white;
   color: #4C88BE;
 }
 
@@ -80,10 +114,12 @@ padding: 19px 10px 10px 10px;
 font-size: 14px;
 }
 
-.device-container {
+.tech-device-container {
 margin: 40px 20px 40px -60px;
+box-shadow: 10px 10px 5px #4C88BE;
 border-radius: 7px;
 }
+
 
 .collapse {
   padding: 0px !important;
@@ -91,12 +127,7 @@ border-radius: 7px;
 
 .table {
   padding: 0px;
-
 }
 #bootstrap-overrides table {
   padding: 0px;
-}
-
-.blacklisted {
-  background-color: #2d2d2d !important;
 }

@@ -2,9 +2,14 @@ const mongoose = require('mongoose');
 const repairOrder = require('../models/repairOrder.js');
 const user = require('../models/user.js');
 const passport = require('passport');
+const _ = require('lodash');
 
 // Add a repairOrder
 exports.add = function(req, res, next){
+
+  if(_.isNil(req.body) || _.isEmpty(req.body)){
+    return res.status(400).send('Bad Request');
+  }
 
   repairOrder.findOne({ "sroID": req.body.sroID }, function(err, existingRepairOrder){
     if(!existingRepairOrder){
@@ -85,14 +90,20 @@ exports.getAllRepairOrdersByEmail = function(req, res){
 // BlackList a repairOrder by sroID
 exports.blacklist = function(req, res){
 
+  if(_.isNil(req.body) || _.isEmpty(req.body)){
+    return res.status(400).send('Bad Request');
+  }
+
   let sroID = req.body.sroID;
-  
+
   repairOrder.findOneAndUpdate({ sroID: sroID, blacklist: false }, { blacklist: true }, { new: true }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
     }
-
+    else if(_.isNil(repairOrder) || _.isEmpty(repairOrder)){
+      return res.status(404).send('Resource Not Found');
+    }
     res.status(200).send(repairOrder.blacklist);
   });
 
@@ -101,14 +112,20 @@ exports.blacklist = function(req, res){
 // UnblackList a repairOrder by sroID
 exports.unblacklist = function(req, res){
 
+  if(_.isNil(req.body) || _.isEmpty(req.body)){
+    return res.status(400).send('Bad Request');
+  }
+
   let sroID = req.body.sroID;
-  // console.log(req.body);
+
   repairOrder.findOneAndUpdate({ sroID: sroID, blacklist: true}, { blacklist: false }, { new: true }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
     }
-
+    else if(_.isNil(repairOrder) || _.isEmpty(repairOrder)){
+      return res.status(404).send('Resource Not Found');
+    }
     res.status(200).send(repairOrder.blacklist);
   });
 
@@ -132,12 +149,19 @@ exports.unblacklist = function(req, res){
 // Delete an repairOrder by sroID
 exports.delete = function(req, res){
 
+  if(_.isNil(req.body) || _.isEmpty(req.body)){
+    return res.status(400).send('Bad Request');
+  }
+
   let sroID = req.body.sroID;
 
   repairOrder.findOneAndRemove({ sroID: sroID }, function(err, repairOrder){
 
     if(err){
       res.status(500).send('Internal Server Error');
+    }
+    else if(_.isNil(repairOrder) || _.isEmpty(repairOrder)){
+      return res.status(404).send('Resource Not Found');
     }
 
     res.status(200).end();

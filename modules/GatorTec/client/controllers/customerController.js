@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('customer', [])
-  .controller('customerController', ['$scope', 'httpAPI', function($scope, httpAPI) {
-    
+  .controller('customerController', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
+
     httpAPI.getAllRepairOrdersByEmail().then(function(response){
-      console.log(response);
+
       $scope.repairOrders = response;
       $scope.currentDevice = response[0];
       $scope.progress1 = "100";
@@ -38,7 +38,7 @@
       $scope.repairOrders.sort(function(a,b){
         return a.sroID - b.sroID;
       });
-      console.log($scope.repairOrders);
+
     });
 
     var modal = document.getElementById('alertModal');
@@ -83,9 +83,7 @@
     }
 
     $scope.logout = function(){
-      httpAPI.logout().then(function(response){
-        console.log(response);
-      })
+      authAPI.logout();
     };
 
   }]);
