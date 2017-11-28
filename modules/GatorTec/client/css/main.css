@@ -183,9 +183,9 @@ padding-bottom: 20px;
 
 .modal-header {
   padding: 2px 16px;
-  background-color: white;
+  background-color: #4C88BE;
+  color: white;
   border-radius: 5px;
-  color: black;
 }
 
 .close {
