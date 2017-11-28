@@ -47,12 +47,19 @@
       authAPI.logout();
     };
 
+    httpAPI.getAllUsers().then(function(response){
+      $scope.currentEmployee = response[0];
+      $scope.employees = response;
+    });
+
+
   }])
   .controller('adminControllerUsers', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
 
     $scope.employees = [];
 
     httpAPI.getAllUsers().then(function(response){
+      $scope.currentEmployee = response[0];
       $scope.employees = response;
     });
 
@@ -78,10 +85,14 @@
 
   }])
   .controller('adminControllerDatabase', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
-
+    
     $scope.logout = function(){
       authAPI.logout();
     };
 
+    httpAPI.getAllUsers().then(function(response){
+      $scope.currentEmployee = response[0];
+      $scope.employees = response;
+    });
   }]);
 })();

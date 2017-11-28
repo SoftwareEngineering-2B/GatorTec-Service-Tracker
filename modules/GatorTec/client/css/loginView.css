@@ -8,6 +8,8 @@
   left: 0;
   overflow: hidden;
   z-index: -100;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 
 .fullscreen-bg__video {
@@ -34,12 +36,11 @@
 
 @media (max-width: 767px) {
   .fullscreen-bg {
-    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+    background: url('mobileLogin.png') center center / cover no-repeat;
   }
 
   .fullscreen-bg__video {
-    display: none;
-  }
+    background: url('mobileLogin.png') center center / cover no-repeat;  }
 }
 /*end background video*/
 

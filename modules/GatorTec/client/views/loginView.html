@@ -2,13 +2,13 @@
   <div class="wrapper">
 
 <div class="fullscreen-bg">
-    <video loop muted autoplay poster="../loginVid.mp4" class="fullscreen-bg__video">
+    <video loop muted autoplay poster="../mobileLogin.png" class="fullscreen-bg__video">
         <source src="../loginVid.mp4" type="video/mp4">
     </video>
 </div>
     <form class="form-signin">
         <input type="text" ng-model="field1" class="form-control" placeholder="SRO ID" required autofocus /><br/>
-        <input type="text" ng-model="field2" class="form-control" placeholder="Phone Number" size="10" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required/><br/>
+        <input type="password" ng-model="field2" class="form-control" placeholder="Phone Number" size="10" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required/><br/>
         <button class="btn btn-lg btn-primary btn-block" ng-click="login()" type="submit">Login</button>
     </form>
   </div>

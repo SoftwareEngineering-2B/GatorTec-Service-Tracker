@@ -35,7 +35,7 @@ let passportLocal = function(passport){
 
       else{ // A customer is logging in
         // Finds repairOrder that customer put in
-        repairOrder.findOne({ "sroID": username }, function(err, repairOrder){
+        repairOrder.findOne({ "sroID": username, "blacklist": false }, function(err, repairOrder){
           if(err){ return done(err); }
           if(!repairOrder){ return done(null, false); }
 

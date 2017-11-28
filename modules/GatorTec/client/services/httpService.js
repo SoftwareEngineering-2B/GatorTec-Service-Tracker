@@ -136,46 +136,5 @@
       });
     };
 
-    this.login = function(field1, field2){
-
-      let body = {
-        "username": field1,
-        "userPassword": field2
-      };
-
-      $http({
-        method: 'POST',
-        url: 'http://localhost:8080/user/login',
-        headers: { "Content-Type":"application/json" },
-        data: body
-      })
-      .then(function successCallback(response){
-        if(response.data == 'Customer'){
-          $state.go('customer');
-        }
-        else if(response.data == 'Technician'){
-          $state.go('technician');
-        }
-        else if(response.data == 'Admin'){
-          $state.go('admin.customers');
-        }
-      }, function errorCallback(response){
-        return response;
-      });
-
-    };
-
-    this.logout = function(){
-      return $http({
-        method: 'GET',
-        url: 'http://localhost:8080/user/logout',
-      })
-      .then(function successCallback(response){
-        return response;
-      }, function errorCallback(response){
-        return response;
-      });
-    };
-
   }]);
 })();

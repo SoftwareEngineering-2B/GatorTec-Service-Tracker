@@ -1,107 +1,101 @@
-<div class="technician-body">  
+<div class="technician-body">
+
   <nav class="navbar tech-navbar nav-bottom-border navbar-fixed-top">
     <div class="container-fluid">
-      <div class="navbar-header tech-nav-header nav-header text">GatorTec Service Tracker<span style="color:white"> - Technician</span></div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right text">
-          <li class="nav-space">Hello, {{customers.customerName}}</li>
-          <li class="center-bar">|</li>
-          <li><a>Sign Out</a></li>
-        </ul>
+      <div class="navbar-header nav-header text navbar-center">GatorTec Service Tracker</div>
+      <div id="admin-navbar" class="navbar-collapse collapse">
       </div>
     </div>
   </nav>
 
-  <div>
 
-    <div>
-      <h1 align="center">Technician - Customers</h1>
-    </div>
 
-    <div class="input-group" id="searchBar">
-      <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-      <input type="text" class="form-control" placeholder="Search" ng-model="searchCustomer">
-    </div>
-
-      <div class="panel-group" ng-repeat="customer in customers | filter:searchCustomer" style="margin-bottom: 0px">
-        <div class="panel">
-          <!-- unite, gradient, fill, bordered, minimal, strech, simple -->
-          <div class="panel-heading bttn-unite bttn-md bttn-primary" data-toggle="collapse" data-target="#accordion{{customer.sroID}}" ng-class="{'blacklisted':customer.blacklist}">
-            <h4 class="panel-title" >
-              <div class="row">
-                <div class="col-sm-3"><i class="fa fa-cog" aria-hidden="true"></i>{{' ' + customer.sroID}}</div>
-                <div class="col-sm-3"><i class="fa fa-user" aria-hidden="true"></i>{{' ' + customer.customerName}}</div>
-                <div class="col-sm-3"><i class="fa fa-mobile" aria-hidden="true"></i>{{' ' + customer.customerPhoneNumber}}</div>
-                <div class="col-sm-3"><i class="fa fa-envelope" aria-hidden="true"></i>{{' ' + customer.customerEmail}}</div>
+  <div class="row">
+      <div class="col-md-4">
+          <div class="container">
+              <div class="col-md-3">
+                  <div class="profile-sidebar text-center">
+                      <!-- SIDEBAR USERPIC -->
+                      <div class="profile-userpic" align="center" style="color: #4C88BE">
+                          <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                      </div>
+                      <!-- END SIDEBAR USERPIC -->
+                      <!-- SIDEBAR USER TITLE -->
+                      <div class="profile-usertitle">
+                          <div class="profile-usertitle-job">
+                              {{currentEmployee.userRole}}
+                          </div>
+                      </div>
+                      <br/>
+                      <div>
+                        <button class="btn btn-sm btn-danger" id="signoutTech" ui-sref="login" type="button" name="button">Sign Out</button>
+                      </div>
+                      <br/>
+                      <!-- END SIDEBAR USER TITLE -->
+                  </div>
               </div>
-            </h4>
           </div>
-          <div class="panel-collapse collapse" id="accordion{{customer.sroID}}">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-4">
-                  <b>Customer SRO: </b>{{customer.sroID}}</br>
-                  <b>Name: </b>{{customer.customerName}}<br/>
-                  <b>Phone: </b>{{customer.customerPhoneNumber}}<br/>
-                  <b>Date Created: </b>{{customer.dateCreated}}<br/>
-                  <b>Date Modified: </b>{{customer.dateModified}}<br/>
-                </div>
-                <div class="col-sm-4">
-                  <b>Device: </b>{{customer.deviceType}}<br/>
-                  <b>Serial Number: </b>{{customer.serialNumber}}<br/>
-                  <b>Problem Description: </b>{{customer.problemDescription}}<br/>
-                  <b>Work Performed: </b>{{customer.workPerformed}}<br/>
-                  <b>Blacklist Status: </b>{{customer.blacklistStatus}}<br/>
-                </div>
-                <div class="col-sm-4">
-                  <button class="btn btn-md" type="button" name="button" ng-show="{{!customer.blacklist}}" ng-click="blacklist(customer.sroID)">blacklist</button>
-                  <button class="btn btn-md" type="button" name="button" ng-show="{{customer.blacklist}}" ng-click="unblacklist(customer.sroID)">unblacklist</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
-    <!-- <div class="tableWrapper"><br/>
-      <table class="table table-striped table-hover">
 
-        <tr>
-          <th>SRO #</th>
-          <th>Customer Name</th>
-          <th>Customer Phone</th>
-          <th>Customer Email</th>
-        </tr>
+      <div class="col-md-8 tablewrapper" style="border-radius: 3px; border:3px solid #4C88BE;">
+        <div>
+          <h1 align="center">Technician</h1>
+        </div>
 
-        <tbody ng-repeat="customer in customers">
-          <div ng-style="{{customer.blacklistStatus}}" style="background-color: black">
-            <tr data-toggle="collapse" data-target="#accordion{{customer.sroID}}" class="clickable">
+        <div class="input-group" id="searchBar">
+          <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+          <input type="text" class="form-control" placeholder="Search" ng-model="searchCustomer">
+        </div>
+
+
+        <table class="table table-striped table-hover">
+
+          <thead style="background-color: white;">
+            <th>SRO #</th>
+            <th>Customer Name</th>
+            <th>Customer Phone</th>
+            <th>Customer Email</th>
+            <th></th>
+          </thead>
+
+          <tbody ng-repeat="customer in customers | filter:searchCustomer">
+            <tr id="cust" data-toggle="collapse" data-target="#accordion{{customer.sroID}}"
+             ng-class="{'blacklisted' : customer.blacklist}">
               <td>{{customer.sroID}}</td>
               <td>{{customer.customerName}}</td>
               <td>{{customer.customerPhoneNumber}}</td>
-              <td>{{customer.customerEmail}}</td>
+              <td>{{customer.customerEmail}}
+                <td><span ng-show="{{customer.blacklist}}"><i class="fa fa-flag"
+                  style="font-size:24px; text-align:right; color: black"></i></span>
+              </td>
             </tr>
             <tr>
-              <td>
+              <td colspan="6" class="hiddenRow">
                 <div id="accordion{{customer.sroID}}" class="collapse">
-                  Customer SRO: {{customer.sroID}}</br>
-                  Name: {{customer.customerName}}<br/>
-                  Phone: {{customer.customerPhoneNumber}}<br/>
-                  Date Created: {{customer.dateCreated}}<br/>
-                  Date Modified: {{customer.dateModified}}<br/>
-                  Device: {{customer.deviceType}}<br/>
-                  Serial Number: {{customer.serialNumber}}<br/>
-                  Problem: {{customer.probDescription}}<br/>
-                  Work: {{customer.workPerformed}}<br/>
-                  Blacklist Status: {{customer.blacklistStatus}}<br/>
+                  <div class="col-sm-3">
+                    <i class="fa fa-mobile fa-5x"></i></br>
+                    <b>Device: </b>{{customer.deviceType}}</br>
+                    <b>Serial Number: </b>{{customer.serialNumber}}</br>
+                    <b>Date Created: </b>{{customer.dateCreated}}</br>
+                    <b>Date Modified: </b>{{customer.dateModified}}</br></br>
+
+                    <button class="btn btn-md" type="button" name="button" ng-show="{{!customer.blacklist}}"
+                    ng-click="blacklist(customer.sroID)" id="blist" onClick="history.go(0)">Blacklist</button>
+                    <button class="btn btn-md ng-hide" type="button" name="button" ng-hide="{{!customer.blacklist}}"
+                    ng-click="unblacklist(customer.sroID)" id="unblist" onClick="history.go(0)">Unblacklist</button>
+
+                   </div>
+                  <div class="col-sm-8">
+                    <b>Problem Description: </b>{{customer.problemDescription}}<br/>
+                    <b>Work Performed: </b>{{customer.workPerformed}}<br/>
+                  </div>
                 </div>
               </td>
             </tr>
-          </div>
-        </tbody>
+          </tbody>
+        </table>
+      </div>
 
-      </table>
-    </div> -->
-
-  </div>
+      </div>
 </div>

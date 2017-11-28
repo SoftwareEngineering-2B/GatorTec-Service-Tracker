@@ -1,21 +1,14 @@
+<div class="admin_body">
   <nav class="navbar admin-navbar nav-bottom-border navbar-fixed-top">
     <div class="container-fluid">
-
-      <div class="navbar-header nav-header text">GatorTec Service Tracker</div>
-
+      <div class="navbar-header nav-header text navbar-center">GatorTec Service Tracker</div>
       <div id="admin-navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right text">
-          <li class="nav-space">Hello, {{listings[0].customerName}}</li>
-          <li class="center-bar">|</li>
-          <li><a>Sign Out</a></li>
-        </ul>
       </div>
-
       </div>
-    </nav>
+  </nav>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4"  id="sideb" style="padding-bottom: 3%;">
             <div class="container">
 
                 <div class="col-md-3">
@@ -27,17 +20,14 @@
                         <!-- END SIDEBAR USERPIC -->
                         <!-- SIDEBAR USER TITLE -->
                         <div class="profile-usertitle">
-                            <div class="profile-usertitle-name">
-                                Marcus Doe
-                            </div>
                             <div class="profile-usertitle-job">
-                                Developer
+                                {{currentEmployee.userRole}}
                             </div>
                         </div>
                         <!-- END SIDEBAR USER TITLE -->
 
                         <!-- SIDEBAR MENU -->
-                        <div class="profile-usermenu">
+                        <div class="profile-usermenu text-center">
                             <ul class="nav">
                               <li>
                                   <a ui-sref="admin.customers">Customers</a>
@@ -48,7 +38,11 @@
                               <li class="active">
                                   <a ui-sref="admin.database">Database</a>
                               </li>
-
+                              <br/>
+                              <li>
+                                <button class="btn btn-sm btn-danger" id="signout" ui-sref="login" type="button" name="button">Sign Out</button>
+                              </li>
+                              <br/>
                             </ul>
                         </div>
                         <!-- END MENU -->
@@ -57,8 +51,7 @@
             </div>
         </div>
 
-
-    <div id="body" class="col-md-8" style="border:1px solid black; padding-bottom:3%">
+    <div id="admin" class="col-md-8" style="border:1px solid #4C88BE; padding-bottom:3%; border-radius: 3px;">
       <h1 align="center">Admin - Upload</h1>
       <div align="center">
       <label class="btn btn-default btn-file">
@@ -68,4 +61,5 @@
     </div>
     </div>
 
-    </div>
+</div>
+</div>
