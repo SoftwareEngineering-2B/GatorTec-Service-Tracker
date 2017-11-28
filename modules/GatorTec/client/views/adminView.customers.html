@@ -41,7 +41,7 @@
                               </li>
                               <br/>
                               <li>
-                                <button class="btn btn-sm btn-danger" id="signout" ui-sref="login" type="button" name="button">Sign Out</button>
+                                <button class="btn btn-sm btn-danger" id="signout" ng-click="logout()" type="button" name="button">Sign Out</button>
                               </li>
                               <br/>
                           </ul>
@@ -94,9 +94,9 @@
                     <b>Date Created: </b>{{customer.dateCreated}}</br>
                     <b>Date Modified: </b>{{customer.dateModified}}</br></br>
                     <button class="btn btn-md" type="button" id="blist" name="button" ng-show="{{!customer.blacklist}}"
-                    ng-click="blacklist(customer.sroID)" onClick="history.go(0)">Blacklist</button>
+                    ng-click="blacklist(customer.sroID)">Blacklist</button>
                     <button class="btn btn-md ng-hide" type="button" id="unblist" name="button" ng-hide="{{!customer.blacklist}}"
-                    ng-click="unblacklist(customer.sroID)" onClick="history.go(0)">Unblacklist</button>
+                    ng-click="unblacklist(customer.sroID)">Unblacklist</button>
                     <div style="padding-top: 2%">
                     <button class="btn btn-md btn-danger" type="button" name="button" ng-click="delete(customer.sroID)">delete</button>
                     </div>
