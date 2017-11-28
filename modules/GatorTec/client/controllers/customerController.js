@@ -20,7 +20,7 @@
       else if(response[0].status == "Waiting for Customer"){
         $scope.progress2 = "50";
         $scope.progress3 = "0";
-        // ADD POP UP
+        // POP UP
         modal.style.display = "block";
       }
       else if(response[0].status == "Parts Ordered"){
@@ -65,7 +65,7 @@
       else if(repairOrder.status == "Waiting for Customer"){
         $scope.progress2 = "50";
         $scope.progress3 = "0";
-        // ADD POP UP
+        // POP UP
         modal.style.display = "block";
       }
       else if(repairOrder.status == "Parts Ordered"){
