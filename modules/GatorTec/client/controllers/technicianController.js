@@ -33,11 +33,11 @@
        });
      };
 
+     $scope.employees = [];
+     httpAPI.getAllUsers().then(function(response){
+       $scope.currentEmployee = response[1];
+       $scope.employees = response;
+     });
   }]);
-  $scope.employees = [];
-  httpAPI.getAllUsers().then(function(response){
-    console.log(response);
-    $scope.currentEmployee = response[0];
-    $scope.employees = response;
-  });
+
 })();
