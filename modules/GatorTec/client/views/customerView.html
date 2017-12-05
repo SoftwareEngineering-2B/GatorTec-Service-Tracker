@@ -17,8 +17,8 @@
       <center>
         <table class="horizontal_table">
           <tr>
-            <td ng-repeat="repairOrder in repairOrders" class="device_td" ng-click="switchDevice(repairOrder)">
-              <button class="device_b">
+            <td ng-repeat="repairOrder in repairOrders" class="device_td" ng-click="switchDevice(repairOrder, $index)">
+            <button id="{{$index}}" class="device_b">
                 <div class="div-i">
                   <!-- iPhone --><i ng-show="repairOrder.deviceType.indexOf('iPhone')!=-1" style="background-color:transparent;border-color:transparent;height:auto;width: 100px;line-height:normal;color:#6797be;font-size:85px;" class="device_i fa fontawesome-icon fa-mobile circle-no"></i>
                   <!-- Mac --><i ng-show="repairOrder.deviceType.indexOf('Mac')!=-1" style="background-color:transparent;border-color:transparent;height:93px;width: 110px;line-height:normal;color:#6797be;font-size:75px;" class="device_i fa fontawesome-icon fa-desktop circle-no"></i>
@@ -112,16 +112,19 @@
 
           <div class="total_notes_div">
             <div align="left">
-              <div ng-show="currentDevice.status != 'Ready'" class="notes-header">Your repair is in progress.</div>
-              <div ng-show="currentDevice.status == 'Ready'" class="notes-header">Your repair is complete.</div>
+              <div ng-show="currentDevice.status != 'Ready' && currentDevice.status != 'Invoiced'" class="notes-header">Your repair is in progress.</div>
+              <div ng-show="currentDevice.status == 'Ready' || currentDevice.status == 'Invoiced'" class="notes-header">Your repair is complete.</div>
 
               <div class="notes-div">
                 <div class="date">{{currentDevice.dateCreated}}:</div>
-                <div ng-show="currentDevice.status != 'Ready'" class="status_notes">
+                <div ng-show="currentDevice.status != 'Ready' && currentDevice.status != 'Invoiced'" class="status_notes">
                   Our technicians are working on your product. We'll notify you when the repair has been completed.
                 </div>
                 <div ng-show="currentDevice.status == 'Ready'" class="status_notes">
                   Your device is ready for pick-up.
+                </div>
+                <div ng-show="currentDevice.status == 'Invoiced'" class="status_notes">
+                  Your device has been returned.
                 </div>
               </div>
 
