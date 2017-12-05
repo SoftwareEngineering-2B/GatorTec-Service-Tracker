@@ -33,6 +33,10 @@
        });
      };
 
+     $scope.logout = function(){
+       authAPI.logout();
+     };
+
      $scope.employees = [];
      httpAPI.getAllUsers().then(function(response){
        $scope.currentEmployee = response[1];
