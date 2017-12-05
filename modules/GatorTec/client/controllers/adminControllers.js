@@ -85,7 +85,7 @@
 
   }])
   .controller('adminControllerDatabase', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
-    
+
     $scope.logout = function(){
       authAPI.logout();
     };
