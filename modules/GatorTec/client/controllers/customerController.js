@@ -5,7 +5,6 @@
   .controller('customerController', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
 
     httpAPI.getAllRepairOrdersByEmail().then(function(response){
-
       $scope.repairOrders = response;
       $scope.currentDevice = response[0];
       $scope.progress1 = "100";
@@ -38,7 +37,6 @@
       $scope.repairOrders.sort(function(a,b){
         return a.sroID - b.sroID;
       });
-
     });
 
     var modal = document.getElementById('alertModal');
@@ -52,7 +50,7 @@
       }
     }
 
-    $scope.switchDevice = function(repairOrder) {
+    $scope.switchDevice = function(repairOrder, index) {
       $scope.currentDevice = repairOrder;
       if(repairOrder.status == "Device Received"){
         $scope.progress2 = "0";
@@ -80,6 +78,18 @@
         $scope.progress2 = "100";
         $scope.progress3 = "100";
       }
+
+      var i = 0;
+      for(i = 0; i < $scope.repairOrders.length; i++){
+        if (i != index) {
+          var btn = document.getElementById(i);
+          btn.style = "device_b";
+        }
+      }
+
+      var btn = document.getElementById(index);
+      btn.style.backgroundColor="lightgrey";
+      btn.style.boxShadow="inset 0 0 10px grey";
     }
 
     $scope.logout = function(){
