@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('technician', [])
-  .controller('technicianController', ['$scope', 'httpAPI', function($scope, httpAPI) {
+  .controller('technicianController', ['$scope', 'httpAPI','authAPI', function($scope, httpAPI,authAPI) {
 
      $scope.customers = [];
 
@@ -37,11 +37,6 @@
        authAPI.logout();
      };
 
-     $scope.employees = [];
-     httpAPI.getAllUsers().then(function(response){
-       $scope.currentEmployee = response[1];
-       $scope.employees = response;
-     });
   }]);
 
 })();

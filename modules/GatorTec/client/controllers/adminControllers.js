@@ -66,6 +66,7 @@
     $scope.add = function(name, username, userPassword, userRole){
       httpAPI.addUser(name, username, userPassword, userRole).then(function(response){
           $scope.employees.push(response);
+          $scope.$apply();
         });
     };
 
