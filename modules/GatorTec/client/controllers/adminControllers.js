@@ -92,11 +92,10 @@
       authAPI.logout();
     };
 
-    $scope.parser = function(){
-      Papa.parse($scope.fileToParse)
-           .then(function(){
-             console.log('lol');
-           });
+    $scope.parseFile = function(){
+      Papa.parse($scope.fileToParse).then(function(response){
+          httpAPI.addRepairOrders(response.data);
+      });
     };
 
     httpAPI.getAllUsers().then(function(response){
