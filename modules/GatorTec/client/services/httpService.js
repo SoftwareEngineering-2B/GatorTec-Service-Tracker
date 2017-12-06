@@ -4,6 +4,45 @@
   angular.module('httpService', [])
   .service('httpAPI', ['$http', '$state', function($http, $state) {
 
+    this.addRepairOrders = function(ParsedRepairOrders){
+
+      let newRepairOrders = [];
+      let newRepairOrder = {};
+
+      for(let i = 1; i < ParsedRepairOrders.length; i++){
+        newRepairOrder = {};
+
+        newRepairOrder.sroID = ParsedRepairOrders[i][0];
+        newRepairOrder.dateCreated = ParsedRepairOrders[i][1];
+        newRepairOrder.deviceType = ParsedRepairOrders[i][2];
+        newRepairOrder.dateModified = ParsedRepairOrders[i][3];
+        newRepairOrder.customerName = ParsedRepairOrders[i][4];
+        newRepairOrder.customerPhoneNumber = ParsedRepairOrders[i][5];
+        newRepairOrder.customerEmail = ParsedRepairOrders[i][6];
+        newRepairOrder.status = ParsedRepairOrders[i][7];
+        newRepairOrder.printedNotes = ParsedRepairOrders[i][8];
+        newRepairOrder.serialNumber = ParsedRepairOrders[i][9];
+        newRepairOrder.warrantyStatus = ParsedRepairOrders[i][10];
+        newRepairOrder.workPerformed = ParsedRepairOrders[i][11];
+        newRepairOrder.problemDescription = "";
+        newRepairOrder.blacklist = false;
+
+        newRepairOrders.push(newRepairOrder);
+
+      }
+
+      return $http({
+        method: 'POST',
+        url: 'http://localhost:8080/repairOrder/add',
+        headers: { "Content-Type":"application/json" },
+        data: newRepairOrders
+      }).then(function successCallback(response){
+        return response;
+      }, function errorCallback(response){
+        return response;
+      });
+    };
+
      this.getAllRepairOrders = function(){
       return $http({
         method: 'GET',

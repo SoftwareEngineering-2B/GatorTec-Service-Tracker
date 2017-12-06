@@ -4,55 +4,59 @@ const user = require('../models/user.js');
 const passport = require('passport');
 const _ = require('lodash');
 
-// Add a repairOrder
+// Add repairOrders
 exports.add = function(req, res, next){
 
   if(_.isNil(req.body) || _.isEmpty(req.body)){
     return res.status(400).send('Bad Request');
   }
 
-  repairOrder.findOne({ "sroID": req.body.sroID }, function(err, existingRepairOrder){
-    if(!existingRepairOrder){
-      let sro = req.body;
-
-      repairOrder.create(sro, function(err, sro){
-
-        if(err){
-          return res.status(400).send('Bad Request');
-        }
-
-        next();
-      });
+  user.remove({ "userRole": "Customer" }, function(err){ // Removes all Customers
+    if(err){
+      return res.status(500).send('Internal Server Error');
     }
-    else{
-      next();
-    }
-  });
 
-};
+    repairOrder.remove({}, function(err){ // Removes all repairOrders
+      if(err){
+        return res.status(500).send('Internal Server Error');
+      }
 
-exports.createUserFromSRO = function(req, res){
+      let newRepairOrders = req.body;
+      for(let i = 0; i<newRepairOrders.length; i++){ // Loops through the array of new repairOrders
+        repairOrder.create(newRepairOrders[i], function(err, sro){ // Creates the new repairOrder
 
-  user.findOne({ "username": req.body.customerEmail, "userRole": 'Customer' }, function(err, existingUser){
-    if(!existingUser){
-      let newUser = new user();
-      newUser.name = req.body.customerName;
-      newUser.username = req.body.customerEmail;
-      newUser.userRole = 'Customer';
-      newUser.userPassword = passport.encryptPassword(req.body.customerPhoneNumber);
+          if(err){
+            return res.status(400).send('Bad Request');
+          }
 
-      user.create(newUser, function(err, newUser){
+          user.findOne({ "username": newRepairOrders[i].customerEmail, "userRole": 'Customer' }, function(err, existingCustomer){ // Determines if customer exists
+            if(!existingCustomer){ // If the customer exists, create them
+              let newUser = new user();
+              newUser.name = newRepairOrders[i].customerName;
+              newUser.username = newRepairOrders[i].customerEmail;
+              newUser.userRole = 'Customer';
+              newUser.userPassword = passport.encryptPassword(newRepairOrders[i].customerPhoneNumber);
 
-        if(err){
-          return res.status(400).send('Bad Request');
-        }
+              user.create(newUser, function(err, newUser){
+                // console.log(newUser);
+                if(err){
+                  return res.status(400).send('Bad Request');
+                }
 
-        return res.status(200).end();
-      });
-    }
-    else{
-      return res.status(200).end();
-    }
+                return res.status(200).end();
+              });
+            }
+            else{ // If the customer does exist, do not create them
+              return res.status(200).end();
+            }
+          });
+
+        });
+
+      }
+
+    });
+
   });
 
 };

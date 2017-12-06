@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('app', ['login', 'customer', 'technician', 'admin', 'httpService', 'authService', 'ui.router'])
+  angular.module('app', ['login', 'customer', 'technician', 'admin', 'httpService', 'authService', 'ui.router', 'papa-promise', 'angular-file-input'])
     .config(function($stateProvider, $urlRouterProvider, $locationProvider, USER_ROLES){
 
       // $locationProvider.html5Mode({ enabled: true, requireBase: false });
