@@ -56,8 +56,9 @@
       <div align="center">
       <label class="btn btn-default btn-file">
         Upload
-        <input type="file" style="display: none;">
+        <input type="file" style="display: none;" ng-model="fileToParse">
       </label>
+      <button class="btn btn-primary" ng-click="parseFile()">Submit</button>
     </div>
     </div>
 

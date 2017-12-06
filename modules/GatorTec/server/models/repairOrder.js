@@ -16,6 +16,7 @@ let repairOrder = new Schema ({
   dateModified: { type: String, required:true },
   problemDescription: String,
   workPerformed: String,
+  printedNotes: String,
   blacklist: { type: Boolean, required: true }
 
 });

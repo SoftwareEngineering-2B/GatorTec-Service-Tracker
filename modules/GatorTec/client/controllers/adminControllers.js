@@ -84,10 +84,18 @@
     };
 
   }])
-  .controller('adminControllerDatabase', ['$scope', 'httpAPI', 'authAPI', function($scope, httpAPI, authAPI) {
-    
+  .controller('adminControllerDatabase', ['$scope', 'httpAPI', 'authAPI', 'Papa', function($scope, httpAPI, authAPI, Papa) {
+
+    $scope.fileToParse = {};
+
     $scope.logout = function(){
       authAPI.logout();
+    };
+
+    $scope.parseFile = function(){
+      Papa.parse($scope.fileToParse).then(function(response){
+          httpAPI.addRepairOrders(response.data);
+      });
     };
 
     httpAPI.getAllUsers().then(function(response){
