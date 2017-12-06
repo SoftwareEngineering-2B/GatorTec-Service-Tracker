@@ -66,6 +66,7 @@
     $scope.add = function(name, username, userPassword, userRole){
       httpAPI.addUser(name, username, userPassword, userRole).then(function(response){
           $scope.employees.push(response);
+          $scope.$apply();
         });
     };
 
@@ -84,6 +85,7 @@
     };
 
   }])
+
   .controller('adminControllerDatabase', ['$scope', 'httpAPI', 'authAPI', 'Papa', function($scope, httpAPI, authAPI, Papa) {
 
     $scope.fileToParse = {};
