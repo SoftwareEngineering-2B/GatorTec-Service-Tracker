@@ -2,7 +2,6 @@
 /* BODY */
 .customer_body {
 padding-top: 55px;
-
 }
 
 /* NAV BAR STYLING */
@@ -46,21 +45,21 @@ position: absolute;
 }
 
 .logout-button {
-  border: none;
-  background-color: white;
-  font-weight: 500;
-  color: #6F8DEF;
+border: none;
+background-color: white;
+font-weight: 500;
+color: #6F8DEF;
 }
 
 /* DEVICE SELECTION BAR */
 .device-container {
-  position: absolute;
-  top: 20px;
-  left: 10%;
-  right: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+position: absolute;
+top: 20px;
+left: 10%;
+right: 10%;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
 }
 
 .horizontal_table {
@@ -72,8 +71,8 @@ padding: 20px;
 
 /* DEVICE TABLE DATA */
 .device_td {
-  width: 25px;
-  border-radius: 10px;
+width: 25px;
+border-radius: 10px;
 }
 
 /* DEVICE LINKS */
@@ -89,6 +88,7 @@ background-color: white;
 vertical-align: baseline;
 text-decoration: none;
 text-align: center;
+height: 205px;
 }
 
 .device_b:hover {
@@ -96,16 +96,16 @@ text-decoration: none;
 box-shadow: 0 0 10px grey;
 }
 
-.device_b:active {
+.device_b:focus {
 text-decoration: none;
 box-shadow: inset 0 0 10px grey;
 background-color: lightgrey;
 }
 
-.device_b:focus {
-  text-decoration: none;
-  box-shadow: inset 0 0 10px grey;
-  background-color: lightgrey;
+.device_b:active{
+text-decoration: none;
+box-shadow: inset 0 0 10px grey;
+background-color: lightgrey;
 }
 
 /* DEVICE ICONS */
@@ -157,54 +157,52 @@ padding-top: 10px;
 padding-bottom: 20px;
 }
 
-
 /* ALERT MODAL STYLING */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-  background-color: rgba(0,0,0,0.4);
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: black;
+background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
+background-color: #fefefe;
+margin: 15% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 50%;
 }
 
-
 .modal-header {
-  padding: 2px 16px;
-  background-color: #4C88BE;
-  color: white;
-  border-radius: 5px;
+padding: 2px 16px;
+background-color: #4C88BE;
+color: white;
+border-radius: 5px;
 }
 
 .close {
-  color: black;
-  float: right;
-  font-size: 35px;
-  font-weight: bold;
+color: black;
+float: right;
+font-size: 35px;
+font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+color: black;
+text-decoration: none;
+cursor: pointer;
 }
 
 .modal-body {
-  padding: 15px 16px 0 16px;
-  font-size: 16px;
+padding: 15px 16px 0 16px;
+font-size: 16px;
 }
 
 /* PROGRESS BAR STYLING */
@@ -235,7 +233,7 @@ padding: 0;
 }
 
 .progress_words {
-  text-align: center;
+text-align: center;
 }
 
 /* STATUS NOTES STYLING */
